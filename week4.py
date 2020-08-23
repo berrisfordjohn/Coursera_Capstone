@@ -130,12 +130,7 @@ class ProcessLocation:
                     'Venue Longitude',
                     'Venue Category']
 
-
-    def process_url(self, url):
-        self.get_data_from_wikipedia(url=url)
-        self.load_data_into_dataframe()
-        self.add_coordinates()
-        self.getNearbyVenues()
+    def classification_of_venues(self):
         print('There are {} uniques categories.'.format(len(self.nearby_venues['Venue Category'].unique())))
         temp_nearby_venues = self.nearby_venues
         temp_nearby_venues['count'] = np.zeros(len(temp_nearby_venues))
@@ -148,6 +143,13 @@ class ProcessLocation:
         self.grouped_df = onehot.groupby('Neighborhood').mean().reset_index()
         print(self.grouped_df.head())
 
+    def process_url(self, url):
+        self.get_data_from_wikipedia(url=url)
+        self.load_data_into_dataframe()
+        self.add_coordinates()
+        self.getNearbyVenues()
+        self.classification_of_venues()
+        
     def sort_top_ten_venues(self):
         print('sort top ten venues')
         # new dataframe and display the top 10 venues for each neighborhood.
@@ -204,6 +206,13 @@ class ProcessLocation:
     def save_pickle_top_ten(self, filename):
         self.neighborhoods_venues_sorted.to_pickle(filename)
 
+    def save_grouped_df(self, filename):
+        self.grouped_df.to_pickle(filename)
+
+    def read_grouped_df_pickle(self, filename):
+        if os.path.exists(filename):
+            self.grouped_df = pd.read_pickle(filename)
+
     def read_pickle(self, filename):
         if os.path.exists(filename):
             self.neighborhoods_venues_sorted = pd.read_pickle(filename)
@@ -211,11 +220,11 @@ class ProcessLocation:
 
     def run_process(self, url, filename):
         if os.path.exists(filename):
-            self.read_pickle(filename)
+            self.read_grouped_df_pickle(filename)
         else:
             self.process_url(url=url)
-            self.sort_top_ten_venues()
-            self.save_pickle_top_ten(filename=filename)
+            self.save_grouped_df(filename=filename)
+        # self.sort_top_ten_venues()
 
 
     def get_data_for_toronto(self):
