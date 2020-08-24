@@ -22,8 +22,10 @@ def return_most_common_venues(row, num_top_venues):
 
 class ProcessLocation:
 
-    def __init__(self):
+    def __init__(self, location):
+        self.location = location
         self.coordinate_data = {}
+        self.url = None
         self.longitude = []
         self.latitude = []
         self.data_from_wikipedia = []
@@ -44,43 +46,46 @@ class ProcessLocation:
         longitude = ret.get('longitude')
         return longitude, latitude
 
-    def get_data_from_wikipedia(self, url):
-        req = requests.get(url)
-        soup = BeautifulSoup(req.content, 'html.parser')
-        #print(soup.prettify())
-        table = soup.find('table', attrs={'class':'wikitable sortable'})
-        table_body = table.find('tbody')
-        #print(table_body)
+    def get_data_from_wikipedia(self):
+        self.get_url()
+        if self.url:
+            req = requests.get(self.url)
+            soup = BeautifulSoup(req.content, 'html.parser')
+            #print(soup.prettify())
+            table = soup.find('table', attrs={'class':'wikitable sortable'})
+            table_body = table.find('tbody')
+            #print(table_body)
 
-        # get the headers of the table and store in a list
-        table_headers = []
-        headers = table_body.find_all('th')
-        for header in headers:
-            header_value = header.get_text().strip()
-            table_headers.append(header_value)
+            # get the headers of the table and store in a list
+            table_headers = []
+            headers = table_body.find_all('th')
+            for header in headers:
+                header_value = header.get_text().strip()
+                table_headers.append(header_value)
 
-        # get the rows of the table
-        rows = table_body.find_all('tr')
-        for row in rows:
-            row_data = {}
-            cells = row.find_all('td')
-            for position, cell in enumerate(cells):
-                value = cell.get_text().strip()
-                key = table_headers[position]
-                # add the value to a dictionary
-                row_data[key] = value
+            # get the rows of the table
+            rows = table_body.find_all('tr')
+            for row in rows:
+                row_data = {}
+                cells = row.find_all('td')
+                for position, cell in enumerate(cells):
+                    value = cell.get_text().strip()
+                    key = table_headers[position]
+                    # add the value to a dictionary
+                    row_data[key] = value
 
-            # check that there is some data and that Borough is not unassigned
-            if row_data and row_data.get('Borough', '') != 'Not assigned':
-                if 'Neighbourhood' in row_data:
-                    row_data['Neighborhood'] = row_data.pop('Neighbourhood')
-                self.data_from_wikipedia.append(row_data)
+                # check that there is some data and that Borough is not unassigned
+                if row_data and row_data.get('Borough', '') != 'Not assigned':
+                    if 'Neighbourhood' in row_data:
+                        row_data['Neighborhood'] = row_data.pop('Neighbourhood')
+                    self.data_from_wikipedia.append(row_data)
 
 
     def load_data_into_dataframe(self):
-        self.df = pd.DataFrame(self.data_from_wikipedia)
-        # rename the postal code heading
-        self.df.rename(columns={"Postal Code": "PostalCode"}, inplace=True)
+        if self.data_from_wikipedia:
+            self.df = pd.DataFrame(self.data_from_wikipedia)
+            # rename the postal code heading
+            self.df.rename(columns={"Postal Code": "PostalCode"}, inplace=True)
 
     def add_coordinates(self):
         self.longitude = []
@@ -95,8 +100,7 @@ class ProcessLocation:
         self.df['Latitude'] = self.latitude
         self.df['Longitude'] = self.longitude
 
-        return self.df
-
+        
     def getNearbyVenues(self, radius=500):
         names = self.df['Neighborhood']
         latitudes = self.df['Latitude']
@@ -142,13 +146,6 @@ class ProcessLocation:
 
         self.grouped_df = onehot.groupby('Neighborhood').mean().reset_index()
         print(self.grouped_df.head())
-
-    def process_url(self, url):
-        self.get_data_from_wikipedia(url=url)
-        self.load_data_into_dataframe()
-        self.add_coordinates()
-        self.getNearbyVenues()
-        self.classification_of_venues()
         
     def sort_top_ten_venues(self):
         print('sort top ten venues')
@@ -160,10 +157,11 @@ class ProcessLocation:
         # create columns according to number of top venues
         columns = ['Neighborhood']
         for ind in np.arange(num_top_venues):
-            try:
-                columns.append('{}{} Most Common Venue'.format(ind+1, indicators[ind]))
-            except:
-                columns.append('{}th Most Common Venue'.format(ind+1))
+            columns.append('{}'.format(ind +1))
+            #try:
+            #    columns.append('{}{} Most Common Venue'.format(ind+1, indicators[ind]))
+            #except:
+            #    columns.append('{}th Most Common Venue'.format(ind+1))
 
         # create a new dataframe
         self.neighborhoods_venues_sorted = pd.DataFrame(columns=columns)
@@ -172,7 +170,7 @@ class ProcessLocation:
         for ind in np.arange(self.grouped_df.shape[0]):
             self.neighborhoods_venues_sorted.iloc[ind, 1:] = return_most_common_venues(self.grouped_df.iloc[ind, :], num_top_venues)
 
-        print(self.neighborhoods_venues_sorted.head())
+        print(self.neighborhoods_venues_sorted)
 
 
     def cluster_data(self):
@@ -203,40 +201,40 @@ class ProcessLocation:
         colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
         rainbow = [colors.rgb2hex(i) for i in colors_array]
 
-    def save_pickle_top_ten(self, filename):
-        self.neighborhoods_venues_sorted.to_pickle(filename)
-
-    def save_grouped_df(self, filename):
-        self.grouped_df.to_pickle(filename)
-
-    def read_grouped_df_pickle(self, filename):
-        if os.path.exists(filename):
-            self.grouped_df = pd.read_pickle(filename)
-
-    def read_pickle(self, filename):
-        if os.path.exists(filename):
-            self.neighborhoods_venues_sorted = pd.read_pickle(filename)
-
-
-    def run_process(self, url, filename):
-        if os.path.exists(filename):
-            self.read_grouped_df_pickle(filename)
+    def get_data_for_location(self):
+        dataframe_pickle = '{}_dataframe.pkl'.format(self.location)
+        if os.path.exists(dataframe_pickle):
+            self.df = pd.read_pickle(dataframe_pickle)
         else:
-            self.process_url(url=url)
-            self.save_grouped_df(filename=filename)
-        # self.sort_top_ten_venues()
+            self.get_data_from_wikipedia()
+            self.load_data_into_dataframe()
+            self.add_coordinates()
+            self.df.to_pickle(dataframe_pickle)
 
+    def get_data_for_nearby_venues(self):
+        dataframe_pickle = '{}_nearby_veneues.pkl'.format(self.location)
+        if os.path.exists(dataframe_pickle):
+            self.nearby_venues = pd.read_pickle(dataframe_pickle)
+        else:
+            self.getNearbyVenues()
+            self.nearby_venues.to_pickle(dataframe_pickle)
 
-    def get_data_for_toronto(self):
-        filename = 'toronto.pkl'
-        url = 'https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M'
-        self.run_process(url=url, filename=filename)
+    def process_url(self):
+        self.get_data_for_location()
+        self.get_data_for_nearby_venues()
+        self.classification_of_venues()
 
+    def run_process(self):
+        self.process_url()
+        self.sort_top_ten_venues()
 
+    def get_url(self):
+        location_url = {'toronto': 'https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M'}
+        self.url = location_url.get(self.location.lower())
 
 def main():
-    pl = ProcessLocation()
-    pl.get_data_for_toronto()
+    pl = ProcessLocation('toronto')
+    pl.run_process()
 
 if __name__ == '__main__':
     main()    
