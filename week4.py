@@ -25,6 +25,8 @@ class ProcessLocation:
     def __init__(self, location):
         self.location = location
         self.coordinate_data = {}
+        self.kclusters = 5
+        self.rainbow = []
         self.url = None
         self.longitude = []
         self.latitude = []
@@ -33,7 +35,9 @@ class ProcessLocation:
         self.grouped_df = None
         self.nearby_venues = None
         self.neighborhoods_venues_sorted = None
+        self.map_clusters = None
         self.read_local_coordinates_file()
+        self.set_rainbow()
 
     def read_local_coordinates_file(self):
         with open('Geospatial_Coordinates.csv') as in_file:
@@ -41,6 +45,13 @@ class ProcessLocation:
             for row in data:
                 self.coordinate_data[row['Postal Code']] = {'longitude': row['Longitude'],
                                                             'latitude': row['Latitude']}
+
+    def set_rainbow(self):
+        # set color scheme for the clusters
+        x = np.arange(self.kclusters)
+        ys = [i + x + (i * x) ** 2 for i in range(self.kclusters)]
+        colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
+        self.rainbow = [colors.rgb2hex(i) for i in colors_array]
 
     def get_coordinates(self, postal_code):
         ret = self.coordinate_data.get(postal_code, {})
@@ -175,32 +186,56 @@ class ProcessLocation:
 
     def cluster_data(self):
         # set number of clusters
-        kclusters = 5
+
 
         grouped_clustering = self.grouped_df.drop('Neighborhood', 1)
 
         # run k-means clustering
-        kmeans = KMeans(n_clusters=kclusters, random_state=0).fit(grouped_clustering)
-
-        # check cluster labels generated for each row in the dataframe
-        kmeans.labels_[0:10]
+        kmeans = KMeans(n_clusters=self.kclusters, random_state=0).fit(grouped_clustering)
 
         # add clustering labels
         self.neighborhoods_venues_sorted.insert(0, 'Cluster Labels', kmeans.labels_)
 
-        toronto_merged = self.df
+        self.clusters_merged = self.df
 
         # merge toronto_grouped with toronto_data to add latitude/longitude for each neighborhood
-        toronto_merged = toronto_merged.join(self.neighborhoods_venues_sorted.set_index('Neighborhood'),
-                                             on='Neighborhood')
+        self.clusters_merged = self.clusters_merged.join(self.neighborhoods_venues_sorted.set_index('Neighborhood'),
+                                                         on='Neighborhood')
 
-        toronto_merged.head()
+        print(self.clusters_merged)
 
-        # set color scheme for the clusters
-        x = np.arange(kclusters)
-        ys = [i + x + (i * x) ** 2 for i in range(kclusters)]
-        colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
-        rainbow = [colors.rgb2hex(i) for i in colors_array]
+    def get_average_latitude_longitude(self):
+        average_latitude = sum(self.df['Latitude']) / len(self.df['Latitude'])
+        average_longitude = sum(self.df['Longitude']) / len(self.df['Longitude'])
+        return [average_latitude, average_longitude]
+
+    def plot_clusters(self):
+        # create map
+        self.map_clusters = folium.Map(location=self.get_average_latitude_longitude(), zoom_start=11)
+
+        self.clusters_merged = self.clusters_merged.dropna()
+        self.clusters_merged['Cluster Labels'] = self.clusters_merged['Cluster Labels'].astype('int')
+
+        markers_colors = []
+        for index, row in self.clusters_merged.iterrows():
+            postal_code = row['PostalCode']
+            lat = row['Latitude']
+            lon = row['Longitude']
+            neighbour = row['Neighborhood']
+            cluster = row['Cluster Labels']
+            label = folium.Popup(str(postal_code) + ' Cluster ' + str(neighbour), parse_html=True)
+            folium.CircleMarker(
+                [lat, lon],
+                radius=5,
+                popup=label,
+                color=self.rainbow[cluster - 1],
+                fill=True,
+                fill_color=self.rainbow[cluster - 1],
+                fill_opacity=0.7).add_to(self.map_clusters)
+
+    def save_map(self):
+        filename = '{}_map.html'.format(self.location)
+        self.map_clusters.save(filename)
 
     def get_data_for_location(self):
         dataframe_pickle = '{}_dataframe.pkl'.format(self.location)
@@ -228,6 +263,9 @@ class ProcessLocation:
     def run_process(self):
         self.process_url()
         self.sort_top_ten_venues()
+        self.cluster_data()
+        self.plot_clusters()
+        self.save_map()
 
     def get_url(self):
         location_url = {'toronto': 'https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M'}
