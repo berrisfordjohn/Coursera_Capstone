@@ -225,7 +225,7 @@ class ProcessLocation:
             lon = row['Longitude']
             neighbour = row['Neighborhood']
             cluster = row['Cluster Labels']
-            label = folium.Popup(str(postal_code) + ' Cluster ' + str(neighbour), parse_html=True)
+            label = folium.Popup('{}-{}, cluster {}'.format(postal_code, neighbour, cluster), parse_html=True)
             folium.CircleMarker(
                 [lat, lon],
                 radius=5,
@@ -304,8 +304,9 @@ class ProcessLocation:
 
 
 def main():
-    pl = ProcessLocation('newyork')
-    pl.run_process()
+    for location in ['toronto', 'newyork']:
+        pl = ProcessLocation(location)
+        pl.run_process()
 
 
 if __name__ == '__main__':
