@@ -9,6 +9,7 @@ import numpy as np
 # Matplotlib and associated plotting modules
 import matplotlib.cm as cm
 import matplotlib.colors as colors
+import json
 from credentials import CLIENT_ID, CLIENT_SECRET, VERSION, LIMIT
 
 
@@ -25,7 +26,7 @@ class ProcessLocation:
     def __init__(self, location):
         self.location = location
         self.coordinate_data = {}
-        self.kclusters = 5
+        self.kclusters = 10
         self.rainbow = []
         self.url = None
         self.longitude = []
@@ -118,7 +119,7 @@ class ProcessLocation:
         longitudes = self.df['Longitude']
         venues_list = []
         for name, lat, lng in zip(names, latitudes, longitudes):
-            url = 'https://api.foursquare.com/v2/venues/explore?&client_id={}&client_secret={}&v={}&ll={},{}&radius={}&limit={}'.format(
+            url = 'https://api.foursquare.com/v2/venues/explore?&client_id={}&client_secret={}&v={}&ll={},{}&radius={}&limit={}&section=food'.format(
                 CLIENT_ID,
                 CLIENT_SECRET,
                 VERSION,
@@ -126,6 +127,7 @@ class ProcessLocation:
                 lng,
                 radius,
                 LIMIT)
+            # print(url)
             results = requests.get(url).json()["response"]['groups'][0]['items']
             venues_list.append([(
                 name,
@@ -154,14 +156,15 @@ class ProcessLocation:
         onehot = pd.get_dummies(self.nearby_venues[['Venue Category']], prefix="", prefix_sep="")
         # add neighborhood column back to dataframe
         onehot['Neighborhood'] = self.nearby_venues['Neighborhood']
+        print(onehot)
 
-        self.grouped_df = onehot.groupby('Neighborhood').mean().reset_index()
-        print(self.grouped_df.head())
+        self.grouped_df = onehot.groupby('Neighborhood').count().reset_index()
+        print(self.grouped_df)
 
     def sort_top_ten_venues(self):
         print('sort top ten venues')
         # new dataframe and display the top 10 venues for each neighborhood.
-        num_top_venues = 10
+        num_top_venues = 5
 
         indicators = ['st', 'nd', 'rd']
 
@@ -185,9 +188,8 @@ class ProcessLocation:
         print(self.neighborhoods_venues_sorted)
 
     def cluster_data(self):
+        print('cluster data')
         # set number of clusters
-
-
         grouped_clustering = self.grouped_df.drop('Neighborhood', 1)
 
         # run k-means clustering
@@ -218,7 +220,7 @@ class ProcessLocation:
 
         markers_colors = []
         for index, row in self.clusters_merged.iterrows():
-            postal_code = row['PostalCode']
+            postal_code = row['Borough']
             lat = row['Latitude']
             lon = row['Longitude']
             neighbour = row['Neighborhood']
@@ -237,17 +239,45 @@ class ProcessLocation:
         filename = '{}_map.html'.format(self.location)
         self.map_clusters.save(filename)
 
+    def check_local_location_file(self):
+        local_file = '{}_data.json'.format(self.location)
+        ret_data = []
+        if os.path.exists(local_file):
+            with open(local_file) as in_file:
+                local_data = json.load(in_file)
+                features = local_data.get('features', [])
+                for data in features:
+                    borough = data['properties']['borough']
+                    neighborhood_name = data['properties']['name']
+
+                    neighborhood_latlon = data['geometry']['coordinates']
+                    neighborhood_lat = neighborhood_latlon[1]
+                    neighborhood_lon = neighborhood_latlon[0]
+
+                    ret_data.append({'Borough': borough,
+                                     'Neighborhood': neighborhood_name,
+                                     'Latitude': neighborhood_lat,
+                                     'Longitude': neighborhood_lon})
+        if ret_data:
+            self.df = pd.DataFrame(ret_data)
+            return True
+        return False
+
     def get_data_for_location(self):
+        print('get data for location')
         dataframe_pickle = '{}_dataframe.pkl'.format(self.location)
         if os.path.exists(dataframe_pickle):
             self.df = pd.read_pickle(dataframe_pickle)
         else:
-            self.get_data_from_wikipedia()
-            self.load_data_into_dataframe()
-            self.add_coordinates()
+            if not self.check_local_location_file():
+                self.get_data_from_wikipedia()
+                self.load_data_into_dataframe()
+                self.add_coordinates()
             self.df.to_pickle(dataframe_pickle)
+        print(self.df.head())
 
     def get_data_for_nearby_venues(self):
+        print('get nearby venues')
         dataframe_pickle = '{}_nearby_veneues.pkl'.format(self.location)
         if os.path.exists(dataframe_pickle):
             self.nearby_venues = pd.read_pickle(dataframe_pickle)
@@ -268,12 +298,13 @@ class ProcessLocation:
         self.save_map()
 
     def get_url(self):
-        location_url = {'toronto': 'https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M'}
+        location_url = {'toronto': 'https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M',
+                        }
         self.url = location_url.get(self.location.lower())
 
 
 def main():
-    pl = ProcessLocation('toronto')
+    pl = ProcessLocation('newyork')
     pl.run_process()
 
 
