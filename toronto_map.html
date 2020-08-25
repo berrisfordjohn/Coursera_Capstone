@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5cd6c8c6653548fa81d6d6e2361f3c99 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_5cd6c8c6653548fa81d6d6e2361f3c99" ></div>
+        
+</body>
+<script>    
+    
+            var map_5cd6c8c6653548fa81d6d6e2361f3c99 = L.map(
+                "map_5cd6c8c6653548fa81d6d6e2361f3c99",
+                {
+                    center: [43.70460773398059, -79.39715291165047],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c8e343908853477fbd3179383618a93e = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+            var circle_marker_1d6ad6f904814203b610edd131b3db4d = L.circleMarker(
+                [43.7532586, -79.3296565],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_ebd2ce804d484eaeb6d7c04bf0b9b77e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c2845cd5225c4795b9404ce1f26f363c = $(`<div id="html_c2845cd5225c4795b9404ce1f26f363c" style="width: 100.0%; height: 100.0%;">North York-Parkwoods, cluster 0</div>`)[0];
+            popup_ebd2ce804d484eaeb6d7c04bf0b9b77e.setContent(html_c2845cd5225c4795b9404ce1f26f363c);
+        
+
+        circle_marker_1d6ad6f904814203b610edd131b3db4d.bindPopup(popup_ebd2ce804d484eaeb6d7c04bf0b9b77e)
+        ;
+
+        
+    
+    
+            var circle_marker_e03e20ae7ae845a0940cec4e845ac289 = L.circleMarker(
+                [43.7258823, -79.3155716],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_5f2622f950c945ae94ad9f245fde123d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2386f8ad6eec4249b10f01ce475684fc = $(`<div id="html_2386f8ad6eec4249b10f01ce475684fc" style="width: 100.0%; height: 100.0%;">North York-Victoria Village, cluster 5</div>`)[0];
+            popup_5f2622f950c945ae94ad9f245fde123d.setContent(html_2386f8ad6eec4249b10f01ce475684fc);
+        
+
+        circle_marker_e03e20ae7ae845a0940cec4e845ac289.bindPopup(popup_5f2622f950c945ae94ad9f245fde123d)
+        ;
+
+        
+    
+    
+            var circle_marker_8ec73466c51b498bab0b2d427c017abf = L.circleMarker(
+                [43.6542599, -79.3606359],
+                {"bubblingMouseEvents": true, "color": "#2adddd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2adddd", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_007fdc8827b54686828a9989ab5ea04e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8dc0b8f48939488597c0d7416d01c963 = $(`<div id="html_8dc0b8f48939488597c0d7416d01c963" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Regent Park, Harbourfront, cluster 4</div>`)[0];
+            popup_007fdc8827b54686828a9989ab5ea04e.setContent(html_8dc0b8f48939488597c0d7416d01c963);
+        
+
+        circle_marker_8ec73466c51b498bab0b2d427c017abf.bindPopup(popup_007fdc8827b54686828a9989ab5ea04e)
+        ;
+
+        
+    
+    
+            var circle_marker_23de1e53aeb5404cbe5345082b29be3d = L.circleMarker(
+                [43.718518, -79.4647633],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_61307dc1bf2241368838fcd88bdddcd2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_14c5b2d5d62f4f6a8df144e78c09d25d = $(`<div id="html_14c5b2d5d62f4f6a8df144e78c09d25d" style="width: 100.0%; height: 100.0%;">North York-Lawrence Manor, Lawrence Heights, cluster 5</div>`)[0];
+            popup_61307dc1bf2241368838fcd88bdddcd2.setContent(html_14c5b2d5d62f4f6a8df144e78c09d25d);
+        
+
+        circle_marker_23de1e53aeb5404cbe5345082b29be3d.bindPopup(popup_61307dc1bf2241368838fcd88bdddcd2)
+        ;
+
+        
+    
+    
+            var circle_marker_006e015aeb094170bd38bd07226d562f = L.circleMarker(
+                [43.6623015, -79.3894938],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_8c98f43b3a8742c1a0aff1c5b68f16db = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b93a8864e42a4f0d844218a6db8e5e06 = $(`<div id="html_b93a8864e42a4f0d844218a6db8e5e06" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Queen&#39;s Park, Ontario Provincial Government, cluster 8</div>`)[0];
+            popup_8c98f43b3a8742c1a0aff1c5b68f16db.setContent(html_b93a8864e42a4f0d844218a6db8e5e06);
+        
+
+        circle_marker_006e015aeb094170bd38bd07226d562f.bindPopup(popup_8c98f43b3a8742c1a0aff1c5b68f16db)
+        ;
+
+        
+    
+    
+            var circle_marker_4ba58214636541f58daece15ed8b8ec7 = L.circleMarker(
+                [43.6678556, -79.5322424],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_bed8957324c441e39055ecae5dc1267d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0acaca99198b45768bbf5829769b6cef = $(`<div id="html_0acaca99198b45768bbf5829769b6cef" style="width: 100.0%; height: 100.0%;">Etobicoke-Islington Avenue, Humber Valley Village, cluster 0</div>`)[0];
+            popup_bed8957324c441e39055ecae5dc1267d.setContent(html_0acaca99198b45768bbf5829769b6cef);
+        
+
+        circle_marker_4ba58214636541f58daece15ed8b8ec7.bindPopup(popup_bed8957324c441e39055ecae5dc1267d)
+        ;
+
+        
+    
+    
+            var circle_marker_d515941dd9334cf3b43aab17b3e5cdbe = L.circleMarker(
+                [43.8066863, -79.1943534],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_81c3c61b79ad485ea511ce4926a6f133 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_acc71f34c613461bb9fc8c9775637e9c = $(`<div id="html_acc71f34c613461bb9fc8c9775637e9c" style="width: 100.0%; height: 100.0%;">Scarborough-Malvern, Rouge, cluster 0</div>`)[0];
+            popup_81c3c61b79ad485ea511ce4926a6f133.setContent(html_acc71f34c613461bb9fc8c9775637e9c);
+        
+
+        circle_marker_d515941dd9334cf3b43aab17b3e5cdbe.bindPopup(popup_81c3c61b79ad485ea511ce4926a6f133)
+        ;
+
+        
+    
+    
+            var circle_marker_d087dac478f8430793fa5a880a28398b = L.circleMarker(
+                [43.7459058, -79.352188],
+                {"bubblingMouseEvents": true, "color": "#10a2f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#10a2f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_844dc762bba84c83a16c613d34372681 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5058a972e9fb4939821b89be6f468c02 = $(`<div id="html_5058a972e9fb4939821b89be6f468c02" style="width: 100.0%; height: 100.0%;">North York-Don Mills, cluster 3</div>`)[0];
+            popup_844dc762bba84c83a16c613d34372681.setContent(html_5058a972e9fb4939821b89be6f468c02);
+        
+
+        circle_marker_d087dac478f8430793fa5a880a28398b.bindPopup(popup_844dc762bba84c83a16c613d34372681)
+        ;
+
+        
+    
+    
+            var circle_marker_6b385828df544ab78fee2d17f56a4c7c = L.circleMarker(
+                [43.7063972, -79.309937],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_0596133c4e30431ebe70219c685fb7a8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_305df15cf39f473cb2c7a8cea0ffb55d = $(`<div id="html_305df15cf39f473cb2c7a8cea0ffb55d" style="width: 100.0%; height: 100.0%;">East York-Parkview Hill, Woodbine Gardens, cluster 9</div>`)[0];
+            popup_0596133c4e30431ebe70219c685fb7a8.setContent(html_305df15cf39f473cb2c7a8cea0ffb55d);
+        
+
+        circle_marker_6b385828df544ab78fee2d17f56a4c7c.bindPopup(popup_0596133c4e30431ebe70219c685fb7a8)
+        ;
+
+        
+    
+    
+            var circle_marker_1dba4b2be1504777aa4e6fe9fc30a68e = L.circleMarker(
+                [43.6571618, -79.3789371],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_d278dcc967514a2ba1d93ad629978d95 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d0e8451f715e439186e4e3daee2c758e = $(`<div id="html_d0e8451f715e439186e4e3daee2c758e" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Garden District, Ryerson, cluster 8</div>`)[0];
+            popup_d278dcc967514a2ba1d93ad629978d95.setContent(html_d0e8451f715e439186e4e3daee2c758e);
+        
+
+        circle_marker_1dba4b2be1504777aa4e6fe9fc30a68e.bindPopup(popup_d278dcc967514a2ba1d93ad629978d95)
+        ;
+
+        
+    
+    
+            var circle_marker_a856d3564b7e4e449538f8a3a8536f8f = L.circleMarker(
+                [43.709577, -79.4450726],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_af91755be2694346992af4caf2e3e533 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_118eb373629a43c3b7ae7ea6e97b7ab0 = $(`<div id="html_118eb373629a43c3b7ae7ea6e97b7ab0" style="width: 100.0%; height: 100.0%;">North York-Glencairn, cluster 9</div>`)[0];
+            popup_af91755be2694346992af4caf2e3e533.setContent(html_118eb373629a43c3b7ae7ea6e97b7ab0);
+        
+
+        circle_marker_a856d3564b7e4e449538f8a3a8536f8f.bindPopup(popup_af91755be2694346992af4caf2e3e533)
+        ;
+
+        
+    
+    
+            var circle_marker_cd172decd67049f6a87a18cb5c6e2e67 = L.circleMarker(
+                [43.6509432, -79.5547244],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_6fbf2ca8d28a48b69a0e2278cc767edb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cd36f1bc4340405cb4ac76910042d4df = $(`<div id="html_cd36f1bc4340405cb4ac76910042d4df" style="width: 100.0%; height: 100.0%;">Etobicoke-West Deane Park, Princess Gardens, Martin Grove, Islington, Cloverdale, cluster 0</div>`)[0];
+            popup_6fbf2ca8d28a48b69a0e2278cc767edb.setContent(html_cd36f1bc4340405cb4ac76910042d4df);
+        
+
+        circle_marker_cd172decd67049f6a87a18cb5c6e2e67.bindPopup(popup_6fbf2ca8d28a48b69a0e2278cc767edb)
+        ;
+
+        
+    
+    
+            var circle_marker_af2bdb62f5144cfd8cff16be9b8e7dba = L.circleMarker(
+                [43.7258997, -79.340923],
+                {"bubblingMouseEvents": true, "color": "#10a2f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#10a2f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_c230da94c10144bda206276769956865 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c1a32e5d803c4219955e605d211371fe = $(`<div id="html_c1a32e5d803c4219955e605d211371fe" style="width: 100.0%; height: 100.0%;">North York-Don Mills, cluster 3</div>`)[0];
+            popup_c230da94c10144bda206276769956865.setContent(html_c1a32e5d803c4219955e605d211371fe);
+        
+
+        circle_marker_af2bdb62f5144cfd8cff16be9b8e7dba.bindPopup(popup_c230da94c10144bda206276769956865)
+        ;
+
+        
+    
+    
+            var circle_marker_36b12bf220f34aa5b56cb992d8b7fd61 = L.circleMarker(
+                [43.6953439, -79.3183887],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_1559d508244a40818ce9eb0bbcb2e723 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2e3d50587eb64cbc8626b705de4cdaec = $(`<div id="html_2e3d50587eb64cbc8626b705de4cdaec" style="width: 100.0%; height: 100.0%;">East York-Woodbine Heights, cluster 9</div>`)[0];
+            popup_1559d508244a40818ce9eb0bbcb2e723.setContent(html_2e3d50587eb64cbc8626b705de4cdaec);
+        
+
+        circle_marker_36b12bf220f34aa5b56cb992d8b7fd61.bindPopup(popup_1559d508244a40818ce9eb0bbcb2e723)
+        ;
+
+        
+    
+    
+            var circle_marker_2fd7a7f07b244d32aae9b2b4b8bc2545 = L.circleMarker(
+                [43.6514939, -79.3754179],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_cf73b5e81e2d4e7fbacaaaa952250643 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2eafeb57c8ea42e09d6fc0c227d45ea3 = $(`<div id="html_2eafeb57c8ea42e09d6fc0c227d45ea3" style="width: 100.0%; height: 100.0%;">Downtown Toronto-St. James Town, cluster 8</div>`)[0];
+            popup_cf73b5e81e2d4e7fbacaaaa952250643.setContent(html_2eafeb57c8ea42e09d6fc0c227d45ea3);
+        
+
+        circle_marker_2fd7a7f07b244d32aae9b2b4b8bc2545.bindPopup(popup_cf73b5e81e2d4e7fbacaaaa952250643)
+        ;
+
+        
+    
+    
+            var circle_marker_66e69e71ca1d46f39be8381fc5984951 = L.circleMarker(
+                [43.6435152, -79.5772008],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_9ee74a7bcb354d98ac877bcb41d6af68 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b8f745cd61414ed2899bfae97567c528 = $(`<div id="html_b8f745cd61414ed2899bfae97567c528" style="width: 100.0%; height: 100.0%;">Etobicoke-Eringate, Bloordale Gardens, Old Burnhamthorpe, Markland Wood, cluster 5</div>`)[0];
+            popup_9ee74a7bcb354d98ac877bcb41d6af68.setContent(html_b8f745cd61414ed2899bfae97567c528);
+        
+
+        circle_marker_66e69e71ca1d46f39be8381fc5984951.bindPopup(popup_9ee74a7bcb354d98ac877bcb41d6af68)
+        ;
+
+        
+    
+    
+            var circle_marker_cfb778c47c0f409ba94da0440f255c19 = L.circleMarker(
+                [43.7635726, -79.1887115],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_666a60fd66a84ca792330296b215c16a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c5c1aef5c92f4dbb9104c0ee2c838044 = $(`<div id="html_c5c1aef5c92f4dbb9104c0ee2c838044" style="width: 100.0%; height: 100.0%;">Scarborough-Guildwood, Morningside, West Hill, cluster 9</div>`)[0];
+            popup_666a60fd66a84ca792330296b215c16a.setContent(html_c5c1aef5c92f4dbb9104c0ee2c838044);
+        
+
+        circle_marker_cfb778c47c0f409ba94da0440f255c19.bindPopup(popup_666a60fd66a84ca792330296b215c16a)
+        ;
+
+        
+    
+    
+            var circle_marker_88b864b5a04244e5a291df57cea68718 = L.circleMarker(
+                [43.6763574, -79.2930312],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_10058ecbaf3244998944722dce7782d1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2ff21a9892a748fba8392928c7ba3884 = $(`<div id="html_2ff21a9892a748fba8392928c7ba3884" style="width: 100.0%; height: 100.0%;">East Toronto-The Beaches, cluster 5</div>`)[0];
+            popup_10058ecbaf3244998944722dce7782d1.setContent(html_2ff21a9892a748fba8392928c7ba3884);
+        
+
+        circle_marker_88b864b5a04244e5a291df57cea68718.bindPopup(popup_10058ecbaf3244998944722dce7782d1)
+        ;
+
+        
+    
+    
+            var circle_marker_87b67e6ef87645ff945639cdbd8c4d5b = L.circleMarker(
+                [43.6447708, -79.3733064],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_3ca30d4f5d8d4c3e9576e8fe566e69d7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_da80a80659e04ee0a9138a078ec0293e = $(`<div id="html_da80a80659e04ee0a9138a078ec0293e" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Berczy Park, cluster 8</div>`)[0];
+            popup_3ca30d4f5d8d4c3e9576e8fe566e69d7.setContent(html_da80a80659e04ee0a9138a078ec0293e);
+        
+
+        circle_marker_87b67e6ef87645ff945639cdbd8c4d5b.bindPopup(popup_3ca30d4f5d8d4c3e9576e8fe566e69d7)
+        ;
+
+        
+    
+    
+            var circle_marker_8376cfdc076d47c4b705aff6ad3aaecd = L.circleMarker(
+                [43.6890256, -79.453512],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_ed1b8b54feb0477bb08f2da0916bac5e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b89505676518409a8c8822fc717a356d = $(`<div id="html_b89505676518409a8c8822fc717a356d" style="width: 100.0%; height: 100.0%;">York-Caledonia-Fairbanks, cluster 0</div>`)[0];
+            popup_ed1b8b54feb0477bb08f2da0916bac5e.setContent(html_b89505676518409a8c8822fc717a356d);
+        
+
+        circle_marker_8376cfdc076d47c4b705aff6ad3aaecd.bindPopup(popup_ed1b8b54feb0477bb08f2da0916bac5e)
+        ;
+
+        
+    
+    
+            var circle_marker_134150410d06491f8cd752bc0a6c129a = L.circleMarker(
+                [43.7709921, -79.2169174],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_aa65bd6a3c744d4592db1f4c1b320daf = L.popup({"maxWidth": "100%"});
+
+        
+            var html_312d338997274f258f0a845f928a7c8e = $(`<div id="html_312d338997274f258f0a845f928a7c8e" style="width: 100.0%; height: 100.0%;">Scarborough-Woburn, cluster 5</div>`)[0];
+            popup_aa65bd6a3c744d4592db1f4c1b320daf.setContent(html_312d338997274f258f0a845f928a7c8e);
+        
+
+        circle_marker_134150410d06491f8cd752bc0a6c129a.bindPopup(popup_aa65bd6a3c744d4592db1f4c1b320daf)
+        ;
+
+        
+    
+    
+            var circle_marker_edcafca5e8af447ebf7c2768ea8428ce = L.circleMarker(
+                [43.7090604, -79.3634517],
+                {"bubblingMouseEvents": true, "color": "#2adddd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2adddd", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_6513537f0a814ccdbd99b7fb78ff1b32 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2d6b552e3b8348d792734b333860fb01 = $(`<div id="html_2d6b552e3b8348d792734b333860fb01" style="width: 100.0%; height: 100.0%;">East York-Leaside, cluster 4</div>`)[0];
+            popup_6513537f0a814ccdbd99b7fb78ff1b32.setContent(html_2d6b552e3b8348d792734b333860fb01);
+        
+
+        circle_marker_edcafca5e8af447ebf7c2768ea8428ce.bindPopup(popup_6513537f0a814ccdbd99b7fb78ff1b32)
+        ;
+
+        
+    
+    
+            var circle_marker_68c26a25410e44588fe5a0ec2567de88 = L.circleMarker(
+                [43.6579524, -79.3873826],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_7d3f50f1364845fbad2a96f77fb9447a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bcfd7c4750404a86aae9da73657d4e53 = $(`<div id="html_bcfd7c4750404a86aae9da73657d4e53" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Central Bay Street, cluster 8</div>`)[0];
+            popup_7d3f50f1364845fbad2a96f77fb9447a.setContent(html_bcfd7c4750404a86aae9da73657d4e53);
+        
+
+        circle_marker_68c26a25410e44588fe5a0ec2567de88.bindPopup(popup_7d3f50f1364845fbad2a96f77fb9447a)
+        ;
+
+        
+    
+    
+            var circle_marker_69b8174fcd94433796a1d184f87e9b2c = L.circleMarker(
+                [43.669542, -79.4225637],
+                {"bubblingMouseEvents": true, "color": "#4856fb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4856fb", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_8200ea2884ca4061b521ab9d65f88133 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cd0795d8d7f34b9c930f2fc8e06aef11 = $(`<div id="html_cd0795d8d7f34b9c930f2fc8e06aef11" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Christie, cluster 2</div>`)[0];
+            popup_8200ea2884ca4061b521ab9d65f88133.setContent(html_cd0795d8d7f34b9c930f2fc8e06aef11);
+        
+
+        circle_marker_69b8174fcd94433796a1d184f87e9b2c.bindPopup(popup_8200ea2884ca4061b521ab9d65f88133)
+        ;
+
+        
+    
+    
+            var circle_marker_a1e0b03cbd00425b8b1d75b483a6200b = L.circleMarker(
+                [43.773136, -79.2394761],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_d10d52385da14b3cb7c974e540318968 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7e66342ad2194e1f822f842d9b0e2438 = $(`<div id="html_7e66342ad2194e1f822f842d9b0e2438" style="width: 100.0%; height: 100.0%;">Scarborough-Cedarbrae, cluster 9</div>`)[0];
+            popup_d10d52385da14b3cb7c974e540318968.setContent(html_7e66342ad2194e1f822f842d9b0e2438);
+        
+
+        circle_marker_a1e0b03cbd00425b8b1d75b483a6200b.bindPopup(popup_d10d52385da14b3cb7c974e540318968)
+        ;
+
+        
+    
+    
+            var circle_marker_6bd98e1295e44f02a7068eccdc6aeedf = L.circleMarker(
+                [43.8037622, -79.3634517],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_703a597adbc84662ad27d606b4dd30ac = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1a7ae6c5a57e464b9183d58022239f2b = $(`<div id="html_1a7ae6c5a57e464b9183d58022239f2b" style="width: 100.0%; height: 100.0%;">North York-Hillcrest Village, cluster 0</div>`)[0];
+            popup_703a597adbc84662ad27d606b4dd30ac.setContent(html_1a7ae6c5a57e464b9183d58022239f2b);
+        
+
+        circle_marker_6bd98e1295e44f02a7068eccdc6aeedf.bindPopup(popup_703a597adbc84662ad27d606b4dd30ac)
+        ;
+
+        
+    
+    
+            var circle_marker_52eb588dd53c4b55a3f81cb6e436fa4b = L.circleMarker(
+                [43.7543283, -79.4422593],
+                {"bubblingMouseEvents": true, "color": "#9cfba4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9cfba4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_0639af2d569a4cd48f5b49983bcabad6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ea8e597c08bf4257a6a8986f2c6f1ef9 = $(`<div id="html_ea8e597c08bf4257a6a8986f2c6f1ef9" style="width: 100.0%; height: 100.0%;">North York-Bathurst Manor, Wilson Heights, Downsview North, cluster 6</div>`)[0];
+            popup_0639af2d569a4cd48f5b49983bcabad6.setContent(html_ea8e597c08bf4257a6a8986f2c6f1ef9);
+        
+
+        circle_marker_52eb588dd53c4b55a3f81cb6e436fa4b.bindPopup(popup_0639af2d569a4cd48f5b49983bcabad6)
+        ;
+
+        
+    
+    
+            var circle_marker_627363d5bd4b4c2e8c7542842be9ec59 = L.circleMarker(
+                [43.7053689, -79.3493719],
+                {"bubblingMouseEvents": true, "color": "#9cfba4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9cfba4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_2b25461a10254b429ae92ad375ad6c93 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c472a9c59c7f4311bf9e22c9a86c14ac = $(`<div id="html_c472a9c59c7f4311bf9e22c9a86c14ac" style="width: 100.0%; height: 100.0%;">East York-Thorncliffe Park, cluster 6</div>`)[0];
+            popup_2b25461a10254b429ae92ad375ad6c93.setContent(html_c472a9c59c7f4311bf9e22c9a86c14ac);
+        
+
+        circle_marker_627363d5bd4b4c2e8c7542842be9ec59.bindPopup(popup_2b25461a10254b429ae92ad375ad6c93)
+        ;
+
+        
+    
+    
+            var circle_marker_84e2e82af2a247ffa2784988acdf7679 = L.circleMarker(
+                [43.6505712, -79.3845675],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_c97a79d234fb496682b40951704ba0f5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dd7bfaaebee648e1ab99d8730953c833 = $(`<div id="html_dd7bfaaebee648e1ab99d8730953c833" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Richmond, Adelaide, King, cluster 8</div>`)[0];
+            popup_c97a79d234fb496682b40951704ba0f5.setContent(html_dd7bfaaebee648e1ab99d8730953c833);
+        
+
+        circle_marker_84e2e82af2a247ffa2784988acdf7679.bindPopup(popup_c97a79d234fb496682b40951704ba0f5)
+        ;
+
+        
+    
+    
+            var circle_marker_16a6814a17d54a1d8ba936839808164b = L.circleMarker(
+                [43.6690051, -79.4422593],
+                {"bubblingMouseEvents": true, "color": "#4856fb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4856fb", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_ac5b1368226343cdaac6211e9ff2e171 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_819966cb3c8a431ca3a22f7c6eb05066 = $(`<div id="html_819966cb3c8a431ca3a22f7c6eb05066" style="width: 100.0%; height: 100.0%;">West Toronto-Dufferin, Dovercourt Village, cluster 2</div>`)[0];
+            popup_ac5b1368226343cdaac6211e9ff2e171.setContent(html_819966cb3c8a431ca3a22f7c6eb05066);
+        
+
+        circle_marker_16a6814a17d54a1d8ba936839808164b.bindPopup(popup_ac5b1368226343cdaac6211e9ff2e171)
+        ;
+
+        
+    
+    
+            var circle_marker_b879f23a16da41c69ec7013135665bb1 = L.circleMarker(
+                [43.7447342, -79.2394761],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_9d61d9a02a9449d69c693d106c811369 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d8e6de9cb2294c2caa16e826f854aa96 = $(`<div id="html_d8e6de9cb2294c2caa16e826f854aa96" style="width: 100.0%; height: 100.0%;">Scarborough-Scarborough Village, cluster 0</div>`)[0];
+            popup_9d61d9a02a9449d69c693d106c811369.setContent(html_d8e6de9cb2294c2caa16e826f854aa96);
+        
+
+        circle_marker_b879f23a16da41c69ec7013135665bb1.bindPopup(popup_9d61d9a02a9449d69c693d106c811369)
+        ;
+
+        
+    
+    
+            var circle_marker_cc449c8f6b5e450f9d64975d71ca159a = L.circleMarker(
+                [43.7785175, -79.3465557],
+                {"bubblingMouseEvents": true, "color": "#8000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8000ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_b002c253330e45eba7a56ba565777d10 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e8048532d50744d18d20069b49187316 = $(`<div id="html_e8048532d50744d18d20069b49187316" style="width: 100.0%; height: 100.0%;">North York-Fairview, Henry Farm, Oriole, cluster 1</div>`)[0];
+            popup_b002c253330e45eba7a56ba565777d10.setContent(html_e8048532d50744d18d20069b49187316);
+        
+
+        circle_marker_cc449c8f6b5e450f9d64975d71ca159a.bindPopup(popup_b002c253330e45eba7a56ba565777d10)
+        ;
+
+        
+    
+    
+            var circle_marker_866f74826f084e439f4ee2984f7b19b0 = L.circleMarker(
+                [43.7679803, -79.4872619],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_7982178128de4336b651fbb937e9b0f0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e72c5244f5444b53874a5d875fe9a3dd = $(`<div id="html_e72c5244f5444b53874a5d875fe9a3dd" style="width: 100.0%; height: 100.0%;">North York-Northwood Park, York University, cluster 5</div>`)[0];
+            popup_7982178128de4336b651fbb937e9b0f0.setContent(html_e72c5244f5444b53874a5d875fe9a3dd);
+        
+
+        circle_marker_866f74826f084e439f4ee2984f7b19b0.bindPopup(popup_7982178128de4336b651fbb937e9b0f0)
+        ;
+
+        
+    
+    
+            var circle_marker_44b9ad20390a4c07be1df1ce50a653d3 = L.circleMarker(
+                [43.685347, -79.3381065],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_72984c75032348af99c4d07b9b9dc414 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_af617450f41b41d18c52079a0d0ae13f = $(`<div id="html_af617450f41b41d18c52079a0d0ae13f" style="width: 100.0%; height: 100.0%;">East York-East Toronto, Broadview North (Old East York), cluster 0</div>`)[0];
+            popup_72984c75032348af99c4d07b9b9dc414.setContent(html_af617450f41b41d18c52079a0d0ae13f);
+        
+
+        circle_marker_44b9ad20390a4c07be1df1ce50a653d3.bindPopup(popup_72984c75032348af99c4d07b9b9dc414)
+        ;
+
+        
+    
+    
+            var circle_marker_a1acc36e33404939b5fe69961b27419a = L.circleMarker(
+                [43.6408157, -79.3817523],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_4280fef63497457fb386c6b3cf9e4b36 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e7e261bfdd8843cebe83ded1c15329d1 = $(`<div id="html_e7e261bfdd8843cebe83ded1c15329d1" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Harbourfront East, Union Station, Toronto Islands, cluster 8</div>`)[0];
+            popup_4280fef63497457fb386c6b3cf9e4b36.setContent(html_e7e261bfdd8843cebe83ded1c15329d1);
+        
+
+        circle_marker_a1acc36e33404939b5fe69961b27419a.bindPopup(popup_4280fef63497457fb386c6b3cf9e4b36)
+        ;
+
+        
+    
+    
+            var circle_marker_7dccc35bc9dc404ba44276faa1a9c1c9 = L.circleMarker(
+                [43.6479267, -79.4197497],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_fe72f693d2124c438b09d5b4a5d4b68f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1a9cc7ca9f76441793dc3779dacbc42d = $(`<div id="html_1a9cc7ca9f76441793dc3779dacbc42d" style="width: 100.0%; height: 100.0%;">West Toronto-Little Portugal, Trinity, cluster 8</div>`)[0];
+            popup_fe72f693d2124c438b09d5b4a5d4b68f.setContent(html_1a9cc7ca9f76441793dc3779dacbc42d);
+        
+
+        circle_marker_7dccc35bc9dc404ba44276faa1a9c1c9.bindPopup(popup_fe72f693d2124c438b09d5b4a5d4b68f)
+        ;
+
+        
+    
+    
+            var circle_marker_04e9963e000f42b18c3d6d403ad51460 = L.circleMarker(
+                [43.7279292, -79.2620294],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_6216792086304ff087de703c61a63d3b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8cb13b7fa60248b3bc5184f259f8d456 = $(`<div id="html_8cb13b7fa60248b3bc5184f259f8d456" style="width: 100.0%; height: 100.0%;">Scarborough-Kennedy Park, Ionview, East Birchmount Park, cluster 5</div>`)[0];
+            popup_6216792086304ff087de703c61a63d3b.setContent(html_8cb13b7fa60248b3bc5184f259f8d456);
+        
+
+        circle_marker_04e9963e000f42b18c3d6d403ad51460.bindPopup(popup_6216792086304ff087de703c61a63d3b)
+        ;
+
+        
+    
+    
+            var circle_marker_e30a34a35ac447038e805e0473bb271f = L.circleMarker(
+                [43.7869473, -79.385975],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_c8cc6d3a471547f8842185f5606e9413 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1549213af50f48af8d6caabfab031f81 = $(`<div id="html_1549213af50f48af8d6caabfab031f81" style="width: 100.0%; height: 100.0%;">North York-Bayview Village, cluster 5</div>`)[0];
+            popup_c8cc6d3a471547f8842185f5606e9413.setContent(html_1549213af50f48af8d6caabfab031f81);
+        
+
+        circle_marker_e30a34a35ac447038e805e0473bb271f.bindPopup(popup_c8cc6d3a471547f8842185f5606e9413)
+        ;
+
+        
+    
+    
+            var circle_marker_c1355e7d44514b008d4450045c9445bb = L.circleMarker(
+                [43.7374732, -79.4647633],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_fa4cc530f27e4bc69ad4f169dc5e68b8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cb8d2acf318d4d86ab6722ac13645ce9 = $(`<div id="html_cb8d2acf318d4d86ab6722ac13645ce9" style="width: 100.0%; height: 100.0%;">North York-Downsview, cluster 5</div>`)[0];
+            popup_fa4cc530f27e4bc69ad4f169dc5e68b8.setContent(html_cb8d2acf318d4d86ab6722ac13645ce9);
+        
+
+        circle_marker_c1355e7d44514b008d4450045c9445bb.bindPopup(popup_fa4cc530f27e4bc69ad4f169dc5e68b8)
+        ;
+
+        
+    
+    
+            var circle_marker_fb8e080d222d48a0b3aa199157be6b74 = L.circleMarker(
+                [43.6795571, -79.352188],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_cac7d32e7a604f6489ece4ac7bed17b7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_243078c42cb34fada0d99bc98471ad59 = $(`<div id="html_243078c42cb34fada0d99bc98471ad59" style="width: 100.0%; height: 100.0%;">East Toronto-The Danforth West, Riverdale, cluster 8</div>`)[0];
+            popup_cac7d32e7a604f6489ece4ac7bed17b7.setContent(html_243078c42cb34fada0d99bc98471ad59);
+        
+
+        circle_marker_fb8e080d222d48a0b3aa199157be6b74.bindPopup(popup_cac7d32e7a604f6489ece4ac7bed17b7)
+        ;
+
+        
+    
+    
+            var circle_marker_1801377e87ac4170a7d3fdd22e63ddf0 = L.circleMarker(
+                [43.6471768, -79.3815764],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_7e671e1cd34448218ad36594f5993123 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6a3400185d65430eb7f3e9c250da1fff = $(`<div id="html_6a3400185d65430eb7f3e9c250da1fff" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Toronto Dominion Centre, Design Exchange, cluster 8</div>`)[0];
+            popup_7e671e1cd34448218ad36594f5993123.setContent(html_6a3400185d65430eb7f3e9c250da1fff);
+        
+
+        circle_marker_1801377e87ac4170a7d3fdd22e63ddf0.bindPopup(popup_7e671e1cd34448218ad36594f5993123)
+        ;
+
+        
+    
+    
+            var circle_marker_62f88d798e824244af1fab16b9aea459 = L.circleMarker(
+                [43.6368472, -79.4281914],
+                {"bubblingMouseEvents": true, "color": "#10a2f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#10a2f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_a57c31e968f04171810bacaf324696ac = L.popup({"maxWidth": "100%"});
+
+        
+            var html_18fc3278760b4c4d92f2399047ab4a2c = $(`<div id="html_18fc3278760b4c4d92f2399047ab4a2c" style="width: 100.0%; height: 100.0%;">West Toronto-Brockton, Parkdale Village, Exhibition Place, cluster 3</div>`)[0];
+            popup_a57c31e968f04171810bacaf324696ac.setContent(html_18fc3278760b4c4d92f2399047ab4a2c);
+        
+
+        circle_marker_62f88d798e824244af1fab16b9aea459.bindPopup(popup_a57c31e968f04171810bacaf324696ac)
+        ;
+
+        
+    
+    
+            var circle_marker_ababf06ddc0d4acd895e10c2949201ee = L.circleMarker(
+                [43.7111117, -79.2845772],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_02d1105137cd4d999d226991902b3b46 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4ecc5d641b2a48bf898ed7ace03d9bf2 = $(`<div id="html_4ecc5d641b2a48bf898ed7ace03d9bf2" style="width: 100.0%; height: 100.0%;">Scarborough-Golden Mile, Clairlea, Oakridge, cluster 9</div>`)[0];
+            popup_02d1105137cd4d999d226991902b3b46.setContent(html_4ecc5d641b2a48bf898ed7ace03d9bf2);
+        
+
+        circle_marker_ababf06ddc0d4acd895e10c2949201ee.bindPopup(popup_02d1105137cd4d999d226991902b3b46)
+        ;
+
+        
+    
+    
+            var circle_marker_fe73f6b123104b5897e684fe005235c0 = L.circleMarker(
+                [43.7574902, -79.3747141],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_bdac57c5c9ae447e9673eccaa11a8283 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_34f457c7d74b4697a5b907fd69860446 = $(`<div id="html_34f457c7d74b4697a5b907fd69860446" style="width: 100.0%; height: 100.0%;">North York-York Mills, Silver Hills, cluster 0</div>`)[0];
+            popup_bdac57c5c9ae447e9673eccaa11a8283.setContent(html_34f457c7d74b4697a5b907fd69860446);
+        
+
+        circle_marker_fe73f6b123104b5897e684fe005235c0.bindPopup(popup_bdac57c5c9ae447e9673eccaa11a8283)
+        ;
+
+        
+    
+    
+            var circle_marker_da25973858324debbfbc55bcb3c11f19 = L.circleMarker(
+                [43.7390146, -79.5069436],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_bf85e5c09ea54799b8dc1052a4cf71aa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_630dfd15547e44df9263ade73c81e004 = $(`<div id="html_630dfd15547e44df9263ade73c81e004" style="width: 100.0%; height: 100.0%;">North York-Downsview, cluster 5</div>`)[0];
+            popup_bf85e5c09ea54799b8dc1052a4cf71aa.setContent(html_630dfd15547e44df9263ade73c81e004);
+        
+
+        circle_marker_da25973858324debbfbc55bcb3c11f19.bindPopup(popup_bf85e5c09ea54799b8dc1052a4cf71aa)
+        ;
+
+        
+    
+    
+            var circle_marker_901376601a3d4e15b90049cee6ea2ae2 = L.circleMarker(
+                [43.6689985, -79.3155716],
+                {"bubblingMouseEvents": true, "color": "#9cfba4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9cfba4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_f9882645f9a8443981dbef0f5ebd994d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_da320763649c40b793d137b208c324bb = $(`<div id="html_da320763649c40b793d137b208c324bb" style="width: 100.0%; height: 100.0%;">East Toronto-India Bazaar, The Beaches West, cluster 6</div>`)[0];
+            popup_f9882645f9a8443981dbef0f5ebd994d.setContent(html_da320763649c40b793d137b208c324bb);
+        
+
+        circle_marker_901376601a3d4e15b90049cee6ea2ae2.bindPopup(popup_f9882645f9a8443981dbef0f5ebd994d)
+        ;
+
+        
+    
+    
+            var circle_marker_3b5e57c025fd42c2b94b147cb6b5781a = L.circleMarker(
+                [43.6481985, -79.3798169],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_6a72f20194544c419d707a1bd18d9692 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a5e571aac2994ed1a37b6d20d981f78d = $(`<div id="html_a5e571aac2994ed1a37b6d20d981f78d" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Commerce Court, Victoria Hotel, cluster 8</div>`)[0];
+            popup_6a72f20194544c419d707a1bd18d9692.setContent(html_a5e571aac2994ed1a37b6d20d981f78d);
+        
+
+        circle_marker_3b5e57c025fd42c2b94b147cb6b5781a.bindPopup(popup_6a72f20194544c419d707a1bd18d9692)
+        ;
+
+        
+    
+    
+            var circle_marker_92db415d5d024fb69cee8b4664a3761e = L.circleMarker(
+                [43.7137562, -79.4900738],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_357353e060b2450098a681de84f0f2ef = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c34d5176bc1d47eea4ab24ebacf68a80 = $(`<div id="html_c34d5176bc1d47eea4ab24ebacf68a80" style="width: 100.0%; height: 100.0%;">North York-North Park, Maple Leaf Park, Upwood Park, cluster 0</div>`)[0];
+            popup_357353e060b2450098a681de84f0f2ef.setContent(html_c34d5176bc1d47eea4ab24ebacf68a80);
+        
+
+        circle_marker_92db415d5d024fb69cee8b4664a3761e.bindPopup(popup_357353e060b2450098a681de84f0f2ef)
+        ;
+
+        
+    
+    
+            var circle_marker_21aed921ef334b14897799954d97d05d = L.circleMarker(
+                [43.7563033, -79.5659633],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_cf33473e25ca419a970283614f7233cc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_42f189181adc495b973ee00397cac0ad = $(`<div id="html_42f189181adc495b973ee00397cac0ad" style="width: 100.0%; height: 100.0%;">North York-Humber Summit, cluster 0</div>`)[0];
+            popup_cf33473e25ca419a970283614f7233cc.setContent(html_42f189181adc495b973ee00397cac0ad);
+        
+
+        circle_marker_21aed921ef334b14897799954d97d05d.bindPopup(popup_cf33473e25ca419a970283614f7233cc)
+        ;
+
+        
+    
+    
+            var circle_marker_e3e883a5ddee4af2a6ab94048b6d7780 = L.circleMarker(
+                [43.716316, -79.2394761],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_6100ed81fb6842b996adb13d4abfee8c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c446add240b7455bbf197d5eb23a8e1c = $(`<div id="html_c446add240b7455bbf197d5eb23a8e1c" style="width: 100.0%; height: 100.0%;">Scarborough-Cliffside, Cliffcrest, Scarborough Village West, cluster 0</div>`)[0];
+            popup_6100ed81fb6842b996adb13d4abfee8c.setContent(html_c446add240b7455bbf197d5eb23a8e1c);
+        
+
+        circle_marker_e3e883a5ddee4af2a6ab94048b6d7780.bindPopup(popup_6100ed81fb6842b996adb13d4abfee8c)
+        ;
+
+        
+    
+    
+            var circle_marker_bd34e5db4a604ce9a4daf12bfba1009a = L.circleMarker(
+                [43.7284964, -79.4956974],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_1b50a4aaacc54b3d8db517d48bf1d004 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0a3486fe0b4c452593759bd3740d044e = $(`<div id="html_0a3486fe0b4c452593759bd3740d044e" style="width: 100.0%; height: 100.0%;">North York-Downsview, cluster 5</div>`)[0];
+            popup_1b50a4aaacc54b3d8db517d48bf1d004.setContent(html_0a3486fe0b4c452593759bd3740d044e);
+        
+
+        circle_marker_bd34e5db4a604ce9a4daf12bfba1009a.bindPopup(popup_1b50a4aaacc54b3d8db517d48bf1d004)
+        ;
+
+        
+    
+    
+            var circle_marker_4861ac4973ef4cacac637bc9a3e0de8c = L.circleMarker(
+                [43.6595255, -79.340923],
+                {"bubblingMouseEvents": true, "color": "#d4dd80", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d4dd80", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_466be9d3ca874ed8853210ee847244ca = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e272fad6099c48ec8b3dc076fc7b0834 = $(`<div id="html_e272fad6099c48ec8b3dc076fc7b0834" style="width: 100.0%; height: 100.0%;">East Toronto-Studio District, cluster 7</div>`)[0];
+            popup_466be9d3ca874ed8853210ee847244ca.setContent(html_e272fad6099c48ec8b3dc076fc7b0834);
+        
+
+        circle_marker_4861ac4973ef4cacac637bc9a3e0de8c.bindPopup(popup_466be9d3ca874ed8853210ee847244ca)
+        ;
+
+        
+    
+    
+            var circle_marker_999125a3e7a4421593ca777dd7966722 = L.circleMarker(
+                [43.7332825, -79.4197497],
+                {"bubblingMouseEvents": true, "color": "#2adddd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2adddd", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_2ffe5bdd2f1e49cb8407dac96aab5f49 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cf4d3b1552ea4a4b9eea900455ed0a48 = $(`<div id="html_cf4d3b1552ea4a4b9eea900455ed0a48" style="width: 100.0%; height: 100.0%;">North York-Bedford Park, Lawrence Manor East, cluster 4</div>`)[0];
+            popup_2ffe5bdd2f1e49cb8407dac96aab5f49.setContent(html_cf4d3b1552ea4a4b9eea900455ed0a48);
+        
+
+        circle_marker_999125a3e7a4421593ca777dd7966722.bindPopup(popup_2ffe5bdd2f1e49cb8407dac96aab5f49)
+        ;
+
+        
+    
+    
+            var circle_marker_31c64d9e127b4ecf8c6751204afae207 = L.circleMarker(
+                [43.6911158, -79.4760133],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_85dadbde97db434ebd1ab5f20a32a284 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_aac8fe49785a48caba1675ff670d4673 = $(`<div id="html_aac8fe49785a48caba1675ff670d4673" style="width: 100.0%; height: 100.0%;">York-Del Ray, Mount Dennis, Keelsdale and Silverthorn, cluster 9</div>`)[0];
+            popup_85dadbde97db434ebd1ab5f20a32a284.setContent(html_aac8fe49785a48caba1675ff670d4673);
+        
+
+        circle_marker_31c64d9e127b4ecf8c6751204afae207.bindPopup(popup_85dadbde97db434ebd1ab5f20a32a284)
+        ;
+
+        
+    
+    
+            var circle_marker_bd335871807a4a3e92b6fbecc4dea56d = L.circleMarker(
+                [43.692657, -79.2648481],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_b50faf5bc2574895a4626090fc2ee792 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_48e7539d67a845419a3f1ad852194260 = $(`<div id="html_48e7539d67a845419a3f1ad852194260" style="width: 100.0%; height: 100.0%;">Scarborough-Birch Cliff, Cliffside West, cluster 5</div>`)[0];
+            popup_b50faf5bc2574895a4626090fc2ee792.setContent(html_48e7539d67a845419a3f1ad852194260);
+        
+
+        circle_marker_bd335871807a4a3e92b6fbecc4dea56d.bindPopup(popup_b50faf5bc2574895a4626090fc2ee792)
+        ;
+
+        
+    
+    
+            var circle_marker_6d9671a3a2b248889a638f86a3db1d66 = L.circleMarker(
+                [43.7701199, -79.4084928],
+                {"bubblingMouseEvents": true, "color": "#2adddd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2adddd", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_65afa687e67d457fac5eb054e1a96ea0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e4c099cd1d39499eb7c29b6d96684ac2 = $(`<div id="html_e4c099cd1d39499eb7c29b6d96684ac2" style="width: 100.0%; height: 100.0%;">North York-Willowdale, Willowdale East, cluster 4</div>`)[0];
+            popup_65afa687e67d457fac5eb054e1a96ea0.setContent(html_e4c099cd1d39499eb7c29b6d96684ac2);
+        
+
+        circle_marker_6d9671a3a2b248889a638f86a3db1d66.bindPopup(popup_65afa687e67d457fac5eb054e1a96ea0)
+        ;
+
+        
+    
+    
+            var circle_marker_d0c41897647a4059b8109fb2487cd5c7 = L.circleMarker(
+                [43.7616313, -79.5209994],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_3d24dc302674497886cdce402bccab47 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7535ddecd3334f3cbe3fd53eca494821 = $(`<div id="html_7535ddecd3334f3cbe3fd53eca494821" style="width: 100.0%; height: 100.0%;">North York-Downsview, cluster 5</div>`)[0];
+            popup_3d24dc302674497886cdce402bccab47.setContent(html_7535ddecd3334f3cbe3fd53eca494821);
+        
+
+        circle_marker_d0c41897647a4059b8109fb2487cd5c7.bindPopup(popup_3d24dc302674497886cdce402bccab47)
+        ;
+
+        
+    
+    
+            var circle_marker_4ad8a25ea61c42248fea3c5f4eae0c71 = L.circleMarker(
+                [43.7280205, -79.3887901],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_c939683a0adc4d428ead963d647a44d8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c01729807a0c4953a602143f621348f3 = $(`<div id="html_c01729807a0c4953a602143f621348f3" style="width: 100.0%; height: 100.0%;">Central Toronto-Lawrence Park, cluster 0</div>`)[0];
+            popup_c939683a0adc4d428ead963d647a44d8.setContent(html_c01729807a0c4953a602143f621348f3);
+        
+
+        circle_marker_4ad8a25ea61c42248fea3c5f4eae0c71.bindPopup(popup_c939683a0adc4d428ead963d647a44d8)
+        ;
+
+        
+    
+    
+            var circle_marker_a6954adb98744555ad7ea6242a256a65 = L.circleMarker(
+                [43.6731853, -79.4872619],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_f855aa51a9154daa904b6ba0ed2d46f4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e45e08daab5c452895ffda9d229e082f = $(`<div id="html_e45e08daab5c452895ffda9d229e082f" style="width: 100.0%; height: 100.0%;">York-Runnymede, The Junction North, cluster 5</div>`)[0];
+            popup_f855aa51a9154daa904b6ba0ed2d46f4.setContent(html_e45e08daab5c452895ffda9d229e082f);
+        
+
+        circle_marker_a6954adb98744555ad7ea6242a256a65.bindPopup(popup_f855aa51a9154daa904b6ba0ed2d46f4)
+        ;
+
+        
+    
+    
+            var circle_marker_3eeae40be756436b98c374b5d24fd7b9 = L.circleMarker(
+                [43.7574096, -79.273304],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_7e2f1752ce0941c0b8e5fa34826e7146 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0231748b3b75466fa74203602e54884a = $(`<div id="html_0231748b3b75466fa74203602e54884a" style="width: 100.0%; height: 100.0%;">Scarborough-Dorset Park, Wexford Heights, Scarborough Town Centre, cluster 5</div>`)[0];
+            popup_7e2f1752ce0941c0b8e5fa34826e7146.setContent(html_0231748b3b75466fa74203602e54884a);
+        
+
+        circle_marker_3eeae40be756436b98c374b5d24fd7b9.bindPopup(popup_7e2f1752ce0941c0b8e5fa34826e7146)
+        ;
+
+        
+    
+    
+            var circle_marker_1ec882159b574cdf9cae829d471da417 = L.circleMarker(
+                [43.7127511, -79.3901975],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_bd7611e9dc83459e883f9f6011b6b3d7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4134558b539d43aeabe6f4cc04d3a8fc = $(`<div id="html_4134558b539d43aeabe6f4cc04d3a8fc" style="width: 100.0%; height: 100.0%;">Central Toronto-Davisville North, cluster 5</div>`)[0];
+            popup_bd7611e9dc83459e883f9f6011b6b3d7.setContent(html_4134558b539d43aeabe6f4cc04d3a8fc);
+        
+
+        circle_marker_1ec882159b574cdf9cae829d471da417.bindPopup(popup_bd7611e9dc83459e883f9f6011b6b3d7)
+        ;
+
+        
+    
+    
+            var circle_marker_a6ac9af3dcb745f3bdd7861157124ead = L.circleMarker(
+                [43.6969476, -79.4113072],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_92475932dce24b35b6926d0a90393500 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_64aa2227d2204c83a51337bbc899fc0a = $(`<div id="html_64aa2227d2204c83a51337bbc899fc0a" style="width: 100.0%; height: 100.0%;">Central Toronto-Forest Hill North &amp; West, Forest Hill Road Park, cluster 5</div>`)[0];
+            popup_92475932dce24b35b6926d0a90393500.setContent(html_64aa2227d2204c83a51337bbc899fc0a);
+        
+
+        circle_marker_a6ac9af3dcb745f3bdd7861157124ead.bindPopup(popup_92475932dce24b35b6926d0a90393500)
+        ;
+
+        
+    
+    
+            var circle_marker_2612d7e84c95462eb30a716221d32a7b = L.circleMarker(
+                [43.6616083, -79.4647633],
+                {"bubblingMouseEvents": true, "color": "#10a2f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#10a2f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_a2ab49af48344dc8b3b73584f8c2ce1c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_702f5108a4cb4444b0ec55bd66ca0444 = $(`<div id="html_702f5108a4cb4444b0ec55bd66ca0444" style="width: 100.0%; height: 100.0%;">West Toronto-High Park, The Junction South, cluster 3</div>`)[0];
+            popup_a2ab49af48344dc8b3b73584f8c2ce1c.setContent(html_702f5108a4cb4444b0ec55bd66ca0444);
+        
+
+        circle_marker_2612d7e84c95462eb30a716221d32a7b.bindPopup(popup_a2ab49af48344dc8b3b73584f8c2ce1c)
+        ;
+
+        
+    
+    
+            var circle_marker_f6a93159ddb94fb3b7de71c7ae84a13c = L.circleMarker(
+                [43.696319, -79.5322424],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_6573d7e319e348979b5c62369a2589a7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3764ecd7cacb4719b5efa077249bb5b7 = $(`<div id="html_3764ecd7cacb4719b5efa077249bb5b7" style="width: 100.0%; height: 100.0%;">Etobicoke-Westmount, cluster 9</div>`)[0];
+            popup_6573d7e319e348979b5c62369a2589a7.setContent(html_3764ecd7cacb4719b5efa077249bb5b7);
+        
+
+        circle_marker_f6a93159ddb94fb3b7de71c7ae84a13c.bindPopup(popup_6573d7e319e348979b5c62369a2589a7)
+        ;
+
+        
+    
+    
+            var circle_marker_914b2b9f6b49474087b7d2e486cab5a0 = L.circleMarker(
+                [43.7500715, -79.2958491],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_26207ffa7ed342df8f98ca757edd88c8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_37e6bc7fbf1249609ecd67bf06eac8e6 = $(`<div id="html_37e6bc7fbf1249609ecd67bf06eac8e6" style="width: 100.0%; height: 100.0%;">Scarborough-Wexford, Maryvale, cluster 9</div>`)[0];
+            popup_26207ffa7ed342df8f98ca757edd88c8.setContent(html_37e6bc7fbf1249609ecd67bf06eac8e6);
+        
+
+        circle_marker_914b2b9f6b49474087b7d2e486cab5a0.bindPopup(popup_26207ffa7ed342df8f98ca757edd88c8)
+        ;
+
+        
+    
+    
+            var circle_marker_f299cc3df62e405192b1f78e08848af3 = L.circleMarker(
+                [43.7827364, -79.4422593],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_f8ab667b261748d0b09e03f3eddbbcf6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_838dd4de4cbf4af08535808250774e15 = $(`<div id="html_838dd4de4cbf4af08535808250774e15" style="width: 100.0%; height: 100.0%;">North York-Willowdale, Willowdale West, cluster 5</div>`)[0];
+            popup_f8ab667b261748d0b09e03f3eddbbcf6.setContent(html_838dd4de4cbf4af08535808250774e15);
+        
+
+        circle_marker_f299cc3df62e405192b1f78e08848af3.bindPopup(popup_f8ab667b261748d0b09e03f3eddbbcf6)
+        ;
+
+        
+    
+    
+            var circle_marker_ec5d3113ea3c4f078c1cca466d2272e2 = L.circleMarker(
+                [43.7153834, -79.4056784],
+                {"bubblingMouseEvents": true, "color": "#9cfba4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9cfba4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_4957611ba63b4871acad6244247bd64d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_99dbb4cb68a84a8d959b57159f3dab87 = $(`<div id="html_99dbb4cb68a84a8d959b57159f3dab87" style="width: 100.0%; height: 100.0%;">Central Toronto-North Toronto West,  Lawrence Park, cluster 6</div>`)[0];
+            popup_4957611ba63b4871acad6244247bd64d.setContent(html_99dbb4cb68a84a8d959b57159f3dab87);
+        
+
+        circle_marker_ec5d3113ea3c4f078c1cca466d2272e2.bindPopup(popup_4957611ba63b4871acad6244247bd64d)
+        ;
+
+        
+    
+    
+            var circle_marker_6c43fd8bf8b74cf08aee1ae64acde96c = L.circleMarker(
+                [43.6727097, -79.4056784],
+                {"bubblingMouseEvents": true, "color": "#10a2f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#10a2f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_9399d454b91f4ba6b41f665b0c6464b3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_613286d3e2734604afd550086bd9d440 = $(`<div id="html_613286d3e2734604afd550086bd9d440" style="width: 100.0%; height: 100.0%;">Central Toronto-The Annex, North Midtown, Yorkville, cluster 3</div>`)[0];
+            popup_9399d454b91f4ba6b41f665b0c6464b3.setContent(html_613286d3e2734604afd550086bd9d440);
+        
+
+        circle_marker_6c43fd8bf8b74cf08aee1ae64acde96c.bindPopup(popup_9399d454b91f4ba6b41f665b0c6464b3)
+        ;
+
+        
+    
+    
+            var circle_marker_ece36b25dd874d14944b4cf0c171e8ba = L.circleMarker(
+                [43.6489597, -79.456325],
+                {"bubblingMouseEvents": true, "color": "#4856fb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4856fb", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_d3349122a480416b89fef76a92c50fe8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_63a69388bec6435bb1a28905821910d9 = $(`<div id="html_63a69388bec6435bb1a28905821910d9" style="width: 100.0%; height: 100.0%;">West Toronto-Parkdale, Roncesvalles, cluster 2</div>`)[0];
+            popup_d3349122a480416b89fef76a92c50fe8.setContent(html_63a69388bec6435bb1a28905821910d9);
+        
+
+        circle_marker_ece36b25dd874d14944b4cf0c171e8ba.bindPopup(popup_d3349122a480416b89fef76a92c50fe8)
+        ;
+
+        
+    
+    
+            var circle_marker_9b8eac8d50e642b8bea3822cb3de4fea = L.circleMarker(
+                [43.6369656, -79.615819],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_705ecac4131040578edb63edde0c4d79 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_eddef5f5c8644983a7a9ae5ae50cb5d3 = $(`<div id="html_eddef5f5c8644983a7a9ae5ae50cb5d3" style="width: 100.0%; height: 100.0%;">Mississauga-Canada Post Gateway Processing Centre, cluster 9</div>`)[0];
+            popup_705ecac4131040578edb63edde0c4d79.setContent(html_eddef5f5c8644983a7a9ae5ae50cb5d3);
+        
+
+        circle_marker_9b8eac8d50e642b8bea3822cb3de4fea.bindPopup(popup_705ecac4131040578edb63edde0c4d79)
+        ;
+
+        
+    
+    
+            var circle_marker_1b7619ac81204ab78a4efd897d8df246 = L.circleMarker(
+                [43.6889054, -79.5547244],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_216185a6c8d44afcb8ea8db4e6143980 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b261626bbf8b42828f6bb4fbf0be7ee2 = $(`<div id="html_b261626bbf8b42828f6bb4fbf0be7ee2" style="width: 100.0%; height: 100.0%;">Etobicoke-Kingsview Village, St. Phillips, Martin Grove Gardens, Richview Gardens, cluster 0</div>`)[0];
+            popup_216185a6c8d44afcb8ea8db4e6143980.setContent(html_b261626bbf8b42828f6bb4fbf0be7ee2);
+        
+
+        circle_marker_1b7619ac81204ab78a4efd897d8df246.bindPopup(popup_216185a6c8d44afcb8ea8db4e6143980)
+        ;
+
+        
+    
+    
+            var circle_marker_0f07ac1b2da14ffdb682d3f5156e42bf = L.circleMarker(
+                [43.7942003, -79.2620294],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_afb9412b33734b67b47909cfd1f87ad1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7eb8cf676a5542d48d060813fb983580 = $(`<div id="html_7eb8cf676a5542d48d060813fb983580" style="width: 100.0%; height: 100.0%;">Scarborough-Agincourt, cluster 5</div>`)[0];
+            popup_afb9412b33734b67b47909cfd1f87ad1.setContent(html_7eb8cf676a5542d48d060813fb983580);
+        
+
+        circle_marker_0f07ac1b2da14ffdb682d3f5156e42bf.bindPopup(popup_afb9412b33734b67b47909cfd1f87ad1)
+        ;
+
+        
+    
+    
+            var circle_marker_d0fe4a0a85b04db18bd44773ea9e9abf = L.circleMarker(
+                [43.7043244, -79.3887901],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_6f53c36e403244a18417b7b9621e0387 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6dc6f993b8634062a7ed9a11e0156066 = $(`<div id="html_6dc6f993b8634062a7ed9a11e0156066" style="width: 100.0%; height: 100.0%;">Central Toronto-Davisville, cluster 8</div>`)[0];
+            popup_6f53c36e403244a18417b7b9621e0387.setContent(html_6dc6f993b8634062a7ed9a11e0156066);
+        
+
+        circle_marker_d0fe4a0a85b04db18bd44773ea9e9abf.bindPopup(popup_6f53c36e403244a18417b7b9621e0387)
+        ;
+
+        
+    
+    
+            var circle_marker_f21bca69f8334c7dbebdd03d192ec7b7 = L.circleMarker(
+                [43.6626956, -79.4000493],
+                {"bubblingMouseEvents": true, "color": "#8000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8000ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_c53c7aba3c424b00828a7915609b4b15 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f218241bfb49419187fe89d68a612411 = $(`<div id="html_f218241bfb49419187fe89d68a612411" style="width: 100.0%; height: 100.0%;">Downtown Toronto-University of Toronto, Harbord, cluster 1</div>`)[0];
+            popup_c53c7aba3c424b00828a7915609b4b15.setContent(html_f218241bfb49419187fe89d68a612411);
+        
+
+        circle_marker_f21bca69f8334c7dbebdd03d192ec7b7.bindPopup(popup_c53c7aba3c424b00828a7915609b4b15)
+        ;
+
+        
+    
+    
+            var circle_marker_e662a1b6903d4a279cda59a63860e6a9 = L.circleMarker(
+                [43.6515706, -79.4844499],
+                {"bubblingMouseEvents": true, "color": "#d4dd80", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d4dd80", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_5f454d9f5eeb4c64bf324b606ab82f77 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f2d98ab9f4d548d8825ddcc482bab1d9 = $(`<div id="html_f2d98ab9f4d548d8825ddcc482bab1d9" style="width: 100.0%; height: 100.0%;">West Toronto-Runnymede, Swansea, cluster 7</div>`)[0];
+            popup_5f454d9f5eeb4c64bf324b606ab82f77.setContent(html_f2d98ab9f4d548d8825ddcc482bab1d9);
+        
+
+        circle_marker_e662a1b6903d4a279cda59a63860e6a9.bindPopup(popup_5f454d9f5eeb4c64bf324b606ab82f77)
+        ;
+
+        
+    
+    
+            var circle_marker_3e8bf214191f4168b8fa76080326c7db = L.circleMarker(
+                [43.7816375, -79.3043021],
+                {"bubblingMouseEvents": true, "color": "#9cfba4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9cfba4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_bc0c67361815464a9aa4e16cdaf8cfee = L.popup({"maxWidth": "100%"});
+
+        
+            var html_06d54d14bc614aee962d98c6812b3acc = $(`<div id="html_06d54d14bc614aee962d98c6812b3acc" style="width: 100.0%; height: 100.0%;">Scarborough-Clarks Corners, Tam O&#39;Shanter, Sullivan, cluster 6</div>`)[0];
+            popup_bc0c67361815464a9aa4e16cdaf8cfee.setContent(html_06d54d14bc614aee962d98c6812b3acc);
+        
+
+        circle_marker_3e8bf214191f4168b8fa76080326c7db.bindPopup(popup_bc0c67361815464a9aa4e16cdaf8cfee)
+        ;
+
+        
+    
+    
+            var circle_marker_d92722a71320429aa13da123dbb607eb = L.circleMarker(
+                [43.6895743, -79.3831599],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_20e9dfc42d8444a19b6e8d262a31f4ef = L.popup({"maxWidth": "100%"});
+
+        
+            var html_66d52a6966734726bc86e5132816ce4b = $(`<div id="html_66d52a6966734726bc86e5132816ce4b" style="width: 100.0%; height: 100.0%;">Central Toronto-Moore Park, Summerhill East, cluster 0</div>`)[0];
+            popup_20e9dfc42d8444a19b6e8d262a31f4ef.setContent(html_66d52a6966734726bc86e5132816ce4b);
+        
+
+        circle_marker_d92722a71320429aa13da123dbb607eb.bindPopup(popup_20e9dfc42d8444a19b6e8d262a31f4ef)
+        ;
+
+        
+    
+    
+            var circle_marker_8765c57931984af8a1af3178de92ebe0 = L.circleMarker(
+                [43.6532057, -79.4000493],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_a4dd720a7f8141ee96ac8a513a6bd720 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b6578c464b7e4792bbbf18135f77758f = $(`<div id="html_b6578c464b7e4792bbbf18135f77758f" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Kensington Market, Chinatown, Grange Park, cluster 8</div>`)[0];
+            popup_a4dd720a7f8141ee96ac8a513a6bd720.setContent(html_b6578c464b7e4792bbbf18135f77758f);
+        
+
+        circle_marker_8765c57931984af8a1af3178de92ebe0.bindPopup(popup_a4dd720a7f8141ee96ac8a513a6bd720)
+        ;
+
+        
+    
+    
+            var circle_marker_acaeb635d86f4142848be41bf3608968 = L.circleMarker(
+                [43.8152522, -79.2845772],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_7e6e7820b9db4d568d0ac7e5d8c828e1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dd889f48dcf5497b8d9737a21149247f = $(`<div id="html_dd889f48dcf5497b8d9737a21149247f" style="width: 100.0%; height: 100.0%;">Scarborough-Milliken, Agincourt North, Steeles East, L&#39;Amoreaux East, cluster 0</div>`)[0];
+            popup_7e6e7820b9db4d568d0ac7e5d8c828e1.setContent(html_dd889f48dcf5497b8d9737a21149247f);
+        
+
+        circle_marker_acaeb635d86f4142848be41bf3608968.bindPopup(popup_7e6e7820b9db4d568d0ac7e5d8c828e1)
+        ;
+
+        
+    
+    
+            var circle_marker_a8ad15f1e8674ecfb95ff5c10049d157 = L.circleMarker(
+                [43.6864123, -79.4000493],
+                {"bubblingMouseEvents": true, "color": "#4856fb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4856fb", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_1b754faf8e2540e0ba5aef9f35c22b03 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a67bb30f54924a92820aa242600a91dd = $(`<div id="html_a67bb30f54924a92820aa242600a91dd" style="width: 100.0%; height: 100.0%;">Central Toronto-Summerhill West, Rathnelly, South Hill, Forest Hill SE, Deer Park, cluster 2</div>`)[0];
+            popup_1b754faf8e2540e0ba5aef9f35c22b03.setContent(html_a67bb30f54924a92820aa242600a91dd);
+        
+
+        circle_marker_a8ad15f1e8674ecfb95ff5c10049d157.bindPopup(popup_1b754faf8e2540e0ba5aef9f35c22b03)
+        ;
+
+        
+    
+    
+            var circle_marker_c08d422c51e9443993030ce925110aa3 = L.circleMarker(
+                [43.6289467, -79.3944199],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_276c83de04c74b8486e77a6626ed9895 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8ab27f74a34e422cb0a9da4a88ef6aac = $(`<div id="html_8ab27f74a34e422cb0a9da4a88ef6aac" style="width: 100.0%; height: 100.0%;">Downtown Toronto-CN Tower, King and Spadina, Railway Lands, Harbourfront West, Bathurst Quay, South Niagara, Island airport, cluster 0</div>`)[0];
+            popup_276c83de04c74b8486e77a6626ed9895.setContent(html_8ab27f74a34e422cb0a9da4a88ef6aac);
+        
+
+        circle_marker_c08d422c51e9443993030ce925110aa3.bindPopup(popup_276c83de04c74b8486e77a6626ed9895)
+        ;
+
+        
+    
+    
+            var circle_marker_590f430348fa41b08abf14bf7aa1cf9d = L.circleMarker(
+                [43.6056466, -79.5013207],
+                {"bubblingMouseEvents": true, "color": "#9cfba4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9cfba4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_b68b69ded64340479d329fdc369ef7d1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cf5d05163c2e46f8b92b2b6310cd1c45 = $(`<div id="html_cf5d05163c2e46f8b92b2b6310cd1c45" style="width: 100.0%; height: 100.0%;">Etobicoke-New Toronto, Mimico South, Humber Bay Shores, cluster 6</div>`)[0];
+            popup_b68b69ded64340479d329fdc369ef7d1.setContent(html_cf5d05163c2e46f8b92b2b6310cd1c45);
+        
+
+        circle_marker_590f430348fa41b08abf14bf7aa1cf9d.bindPopup(popup_b68b69ded64340479d329fdc369ef7d1)
+        ;
+
+        
+    
+    
+            var circle_marker_d15c1f80e2844a74b3b64e721a9886d0 = L.circleMarker(
+                [43.7394164, -79.5884369],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_5a44b6c6b5474fe5b92098423d5b8e42 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_49888b8ea0b245789728fa94aecf0083 = $(`<div id="html_49888b8ea0b245789728fa94aecf0083" style="width: 100.0%; height: 100.0%;">Etobicoke-South Steeles, Silverstone, Humbergate, Jamestown, Mount Olive, Beaumond Heights, Thistletown, Albion Gardens, cluster 9</div>`)[0];
+            popup_5a44b6c6b5474fe5b92098423d5b8e42.setContent(html_49888b8ea0b245789728fa94aecf0083);
+        
+
+        circle_marker_d15c1f80e2844a74b3b64e721a9886d0.bindPopup(popup_5a44b6c6b5474fe5b92098423d5b8e42)
+        ;
+
+        
+    
+    
+            var circle_marker_99acdfd9ae5e435380b177cc37aad6a0 = L.circleMarker(
+                [43.7995252, -79.3183887],
+                {"bubblingMouseEvents": true, "color": "#9cfba4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9cfba4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_992c5f70753547cd8a414e0d3ea829aa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5f64a6fea01f4c45bf519cf204743720 = $(`<div id="html_5f64a6fea01f4c45bf519cf204743720" style="width: 100.0%; height: 100.0%;">Scarborough-Steeles West, L&#39;Amoreaux West, cluster 6</div>`)[0];
+            popup_992c5f70753547cd8a414e0d3ea829aa.setContent(html_5f64a6fea01f4c45bf519cf204743720);
+        
+
+        circle_marker_99acdfd9ae5e435380b177cc37aad6a0.bindPopup(popup_992c5f70753547cd8a414e0d3ea829aa)
+        ;
+
+        
+    
+    
+            var circle_marker_8c6138b7c2ad4c7aa591a2caa3ee7f05 = L.circleMarker(
+                [43.6795626, -79.3775294],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_da662af342be48ce864c9cc44e0184ac = L.popup({"maxWidth": "100%"});
+
+        
+            var html_48b910cbf06b4f9d91a415a8e0d38a15 = $(`<div id="html_48b910cbf06b4f9d91a415a8e0d38a15" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Rosedale, cluster 0</div>`)[0];
+            popup_da662af342be48ce864c9cc44e0184ac.setContent(html_48b910cbf06b4f9d91a415a8e0d38a15);
+        
+
+        circle_marker_8c6138b7c2ad4c7aa591a2caa3ee7f05.bindPopup(popup_da662af342be48ce864c9cc44e0184ac)
+        ;
+
+        
+    
+    
+            var circle_marker_b932d400af6f4d5e98b6763514acb361 = L.circleMarker(
+                [43.6464352, -79.374846],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_826f0462c7d04db99046630fea64e909 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fee5d56a60d4466788820d7d350418b1 = $(`<div id="html_fee5d56a60d4466788820d7d350418b1" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Stn A PO Boxes, cluster 8</div>`)[0];
+            popup_826f0462c7d04db99046630fea64e909.setContent(html_fee5d56a60d4466788820d7d350418b1);
+        
+
+        circle_marker_b932d400af6f4d5e98b6763514acb361.bindPopup(popup_826f0462c7d04db99046630fea64e909)
+        ;
+
+        
+    
+    
+            var circle_marker_2609ffd02e284c088333388986098f70 = L.circleMarker(
+                [43.6024137, -79.5434841],
+                {"bubblingMouseEvents": true, "color": "#62fbc4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62fbc4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_a4ab3b9264ea4768a049899521073a29 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9cd165db889744acb42819faba74f0b4 = $(`<div id="html_9cd165db889744acb42819faba74f0b4" style="width: 100.0%; height: 100.0%;">Etobicoke-Alderwood, Long Branch, cluster 5</div>`)[0];
+            popup_a4ab3b9264ea4768a049899521073a29.setContent(html_9cd165db889744acb42819faba74f0b4);
+        
+
+        circle_marker_2609ffd02e284c088333388986098f70.bindPopup(popup_a4ab3b9264ea4768a049899521073a29)
+        ;
+
+        
+    
+    
+            var circle_marker_defdcc0e70484a8db80341de0f17dbee = L.circleMarker(
+                [43.667967, -79.3676753],
+                {"bubblingMouseEvents": true, "color": "#8000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8000ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_d901a22d36d249388dc520fcabc75942 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4c2df51c152c4e41920f217faf49a8af = $(`<div id="html_4c2df51c152c4e41920f217faf49a8af" style="width: 100.0%; height: 100.0%;">Downtown Toronto-St. James Town, Cabbagetown, cluster 1</div>`)[0];
+            popup_d901a22d36d249388dc520fcabc75942.setContent(html_4c2df51c152c4e41920f217faf49a8af);
+        
+
+        circle_marker_defdcc0e70484a8db80341de0f17dbee.bindPopup(popup_d901a22d36d249388dc520fcabc75942)
+        ;
+
+        
+    
+    
+            var circle_marker_63b29dda1d914246a8acc60786e907b4 = L.circleMarker(
+                [43.6484292, -79.3822802],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_c63e0bde7fbb4f518bf9668107412e25 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_baf897f73f45483b9d616ebc40e5b58e = $(`<div id="html_baf897f73f45483b9d616ebc40e5b58e" style="width: 100.0%; height: 100.0%;">Downtown Toronto-First Canadian Place, Underground city, cluster 8</div>`)[0];
+            popup_c63e0bde7fbb4f518bf9668107412e25.setContent(html_baf897f73f45483b9d616ebc40e5b58e);
+        
+
+        circle_marker_63b29dda1d914246a8acc60786e907b4.bindPopup(popup_c63e0bde7fbb4f518bf9668107412e25)
+        ;
+
+        
+    
+    
+            var circle_marker_f768e47c9ec44d058f4bfe76fedb44a6 = L.circleMarker(
+                [43.6658599, -79.3831599],
+                {"bubblingMouseEvents": true, "color": "#ffa256", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa256", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_5d79384cd9f947879ce42dd7913809f4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_258208b9648f483381e8391ced2035c4 = $(`<div id="html_258208b9648f483381e8391ced2035c4" style="width: 100.0%; height: 100.0%;">Downtown Toronto-Church and Wellesley, cluster 8</div>`)[0];
+            popup_5d79384cd9f947879ce42dd7913809f4.setContent(html_258208b9648f483381e8391ced2035c4);
+        
+
+        circle_marker_f768e47c9ec44d058f4bfe76fedb44a6.bindPopup(popup_5d79384cd9f947879ce42dd7913809f4)
+        ;
+
+        
+    
+    
+            var circle_marker_e85fd36ba2a6406784f2f7c5f76be1b5 = L.circleMarker(
+                [43.6627439, -79.321558],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_c694fcfb56d64802a531760470a652c4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3c9238e3a78240b58f575a8e6a33d314 = $(`<div id="html_3c9238e3a78240b58f575a8e6a33d314" style="width: 100.0%; height: 100.0%;">East Toronto-Business reply mail Processing Centre, South Central Letter Processing Plant Toronto, cluster 9</div>`)[0];
+            popup_c694fcfb56d64802a531760470a652c4.setContent(html_3c9238e3a78240b58f575a8e6a33d314);
+        
+
+        circle_marker_e85fd36ba2a6406784f2f7c5f76be1b5.bindPopup(popup_c694fcfb56d64802a531760470a652c4)
+        ;
+
+        
+    
+    
+            var circle_marker_97b6351415da4f95bcd1858c4ee92403 = L.circleMarker(
+                [43.6362579, -79.4985091],
+                {"bubblingMouseEvents": true, "color": "#ff0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_45eafa12e76e4764a6705647d3ca231d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7deb5667cc0f4cc8a7490053d3fbcf3b = $(`<div id="html_7deb5667cc0f4cc8a7490053d3fbcf3b" style="width: 100.0%; height: 100.0%;">Etobicoke-Old Mill South, King&#39;s Mill Park, Sunnylea, Humber Bay, Mimico NE, The Queensway East, Royal York South East, Kingsway Park South East, cluster 0</div>`)[0];
+            popup_45eafa12e76e4764a6705647d3ca231d.setContent(html_7deb5667cc0f4cc8a7490053d3fbcf3b);
+        
+
+        circle_marker_97b6351415da4f95bcd1858c4ee92403.bindPopup(popup_45eafa12e76e4764a6705647d3ca231d)
+        ;
+
+        
+    
+    
+            var circle_marker_c853b8bee77b4b20aac3a9d70b1da876 = L.circleMarker(
+                [43.6288408, -79.5209994],
+                {"bubblingMouseEvents": true, "color": "#ff562c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff562c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_5cd6c8c6653548fa81d6d6e2361f3c99);
+        
+    
+        var popup_99c739efd6db4606b1a0c2d2ff0c7fbd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_102377e4e0ca4216ba0a6ee1e4e2f3c3 = $(`<div id="html_102377e4e0ca4216ba0a6ee1e4e2f3c3" style="width: 100.0%; height: 100.0%;">Etobicoke-Mimico NW, The Queensway West, South of Bloor, Kingsway Park South West, Royal York South West, cluster 9</div>`)[0];
+            popup_99c739efd6db4606b1a0c2d2ff0c7fbd.setContent(html_102377e4e0ca4216ba0a6ee1e4e2f3c3);
+        
+
+        circle_marker_c853b8bee77b4b20aac3a9d70b1da876.bindPopup(popup_99c739efd6db4606b1a0c2d2ff0c7fbd)
+        ;
+
+        
+    
+</script>
