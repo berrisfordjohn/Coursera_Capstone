@@ -1,3 +1,6 @@
+#  Script to compare neighborhoods from two city locations 
+
+# import package
 import os
 import pandas as pd  # library for data analysis
 from bs4 import BeautifulSoup  # library to parse web pages
@@ -10,11 +13,22 @@ import numpy as np
 import matplotlib.cm as cm
 import matplotlib.colors as colors
 import json
+import logging  # logging module
+import argparse
+
+# credentials are stored in a separate file and not committed
 from credentials import CLIENT_ID, CLIENT_SECRET, VERSION, LIMIT
 
+logger = logging.getLogger()
 
-# function to sort the venues in descending order
+
 def return_most_common_venues(row, num_top_venues):
+    """
+    Function to sort venues in descending order
+    :param row: Pandas row
+    :param num_top_venues: Number of rows to sort by
+    :return: 
+    """
     row_categories = row.iloc[1:]
     row_categories_sorted = row_categories.sort_values(ascending=False)
 
@@ -22,11 +36,21 @@ def return_most_common_venues(row, num_top_venues):
 
 
 class ProcessLocation:
+    """
+    Class to process location and save a map of the resulting clusters 
+    """
 
-    def __init__(self, location):
+    def __init__(self, location, kclusters=10, num_top_venues=5):
+        """
+
+        :param str location: location to get information about
+        :param int kclusters: Number of clusters
+        :param int num_top_venues: Number of venues to group
+        """
         self.location = location
         self.coordinate_data = {}
-        self.kclusters = 10
+        self.kclusters = kclusters
+        self.num_top_venues = num_top_venues
         self.rainbow = []
         self.url = None
         self.longitude = []
@@ -41,34 +65,51 @@ class ProcessLocation:
         self.set_rainbow()
 
     def read_local_coordinates_file(self):
+        """
+        read local coordinate geospatial CSV file and write data into a dictionary 
+        :return dict: dictionary of postal codes and coordinates
+        """
         with open('Geospatial_Coordinates.csv') as in_file:
             data = csv.DictReader(in_file)
             for row in data:
                 self.coordinate_data[row['Postal Code']] = {'longitude': row['Longitude'],
                                                             'latitude': row['Latitude']}
+        return self.coordinate_data
 
     def set_rainbow(self):
-        # set color scheme for the clusters
+        """
+        set the colour scheme for the clusters
+        :return: 
+        """
         x = np.arange(self.kclusters)
         ys = [i + x + (i * x) ** 2 for i in range(self.kclusters)]
         colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
         self.rainbow = [colors.rgb2hex(i) for i in colors_array]
 
     def get_coordinates(self, postal_code):
+        """
+        get the longitude and latitude for a given postal code
+        :param str postal_code: postal code
+        :return: longitude and latitude or None, None is postal code is not present
+        """
         ret = self.coordinate_data.get(postal_code, {})
         latitude = ret.get('latitude')
         longitude = ret.get('longitude')
         return longitude, latitude
 
     def get_data_from_wikipedia(self):
+        """
+        parse wikipedia page for a given URL - set by self.get_url method
+        :return: 
+        """
         self.get_url()
         if self.url:
             req = requests.get(self.url)
             soup = BeautifulSoup(req.content, 'html.parser')
-            # print(soup.prettify())
+            # logging.debug(soup.prettify())
             table = soup.find('table', attrs={'class': 'wikitable sortable'})
             table_body = table.find('tbody')
-            # print(table_body)
+            # logging.debug(table_body)
 
             # get the headers of the table and store in a list
             table_headers = []
@@ -95,12 +136,20 @@ class ProcessLocation:
                     self.data_from_wikipedia.append(row_data)
 
     def load_data_into_dataframe(self):
+        """
+        Loads data from wikipedia into a Pandas dataframe
+        :return: 
+        """
         if self.data_from_wikipedia:
             self.df = pd.DataFrame(self.data_from_wikipedia)
             # rename the postal code heading
             self.df.rename(columns={"Postal Code": "PostalCode"}, inplace=True)
 
     def add_coordinates(self):
+        """
+        Adds coordinates (longitude, latitude) to data from wikipedia
+        :return: 
+        """
         self.longitude = []
         self.latitude = []
 
@@ -114,6 +163,11 @@ class ProcessLocation:
         self.df['Longitude'] = self.longitude
 
     def get_nearby_venues(self, radius=500):
+        """
+        Get nearby venues from Foursquare
+        :param int radius: radius to get nearby venues
+        :return: 
+        """
         names = self.df['Neighborhood']
         latitudes = self.df['Latitude']
         longitudes = self.df['Longitude']
@@ -127,7 +181,7 @@ class ProcessLocation:
                 lng,
                 radius,
                 LIMIT)
-            # print(url)
+            # logging.debug(url)
             results = requests.get(url).json()["response"]['groups'][0]['items']
             venues_list.append([(
                 name,
@@ -148,29 +202,34 @@ class ProcessLocation:
                                       'Venue Category']
 
     def classification_of_venues(self):
-        print('There are {} uniques categories.'.format(len(self.nearby_venues['Venue Category'].unique())))
+        """
+        Classifies venues and returns a grouped dataFrame
+        :return: 
+        """
+        logging.debug('There are {} uniques categories.'.format(len(self.nearby_venues['Venue Category'].unique())))
         temp_nearby_venues = self.nearby_venues
         temp_nearby_venues['count'] = np.zeros(len(temp_nearby_venues))
         venue_counts = temp_nearby_venues.groupby(['Neighborhood', 'Venue Category']).count()
-        print(venue_counts[(venue_counts['count'] > 2)])
+        logging.debug(venue_counts[(venue_counts['count'] > 2)])
         onehot = pd.get_dummies(self.nearby_venues[['Venue Category']], prefix="", prefix_sep="")
         # add neighborhood column back to dataframe
         onehot['Neighborhood'] = self.nearby_venues['Neighborhood']
-        print(onehot)
+        logging.debug(onehot)
 
         self.grouped_df = onehot.groupby('Neighborhood').count().reset_index()
-        print(self.grouped_df)
+        logging.debug(self.grouped_df)
 
     def sort_top_ten_venues(self):
-        print('sort top ten venues')
+        """
+        sorts the venues into
+        :return:
+        """
+        logging.debug('sort top ten venues')
         # new dataframe and display the top 10 venues for each neighborhood.
-        num_top_venues = 5
-
-        indicators = ['st', 'nd', 'rd']
 
         # create columns according to number of top venues
         columns = ['Neighborhood']
-        for ind in np.arange(num_top_venues):
+        for ind in np.arange(self.num_top_venues):
             columns.append('{}'.format(ind + 1))
             # try:
             #    columns.append('{}{} Most Common Venue'.format(ind+1, indicators[ind]))
@@ -183,12 +242,16 @@ class ProcessLocation:
 
         for ind in np.arange(self.grouped_df.shape[0]):
             self.neighborhoods_venues_sorted.iloc[ind, 1:] = return_most_common_venues(self.grouped_df.iloc[ind, :],
-                                                                                       num_top_venues)
+                                                                                       self.num_top_venues)
 
-        print(self.neighborhoods_venues_sorted)
+        logging.debug(self.neighborhoods_venues_sorted)
 
     def cluster_data(self):
-        print('cluster data')
+        """
+        Clusters data using Kmeans with self.kclusters number of clusters
+        :return:
+        """
+        logging.debug('cluster data')
         # set number of clusters
         grouped_clustering = self.grouped_df.drop('Neighborhood', 1)
 
@@ -204,14 +267,23 @@ class ProcessLocation:
         self.clusters_merged = self.clusters_merged.join(self.neighborhoods_venues_sorted.set_index('Neighborhood'),
                                                          on='Neighborhood')
 
-        print(self.clusters_merged)
+        logging.debug(self.clusters_merged)
 
     def get_average_latitude_longitude(self):
+        """
+        For initiating a map a single latitude / longitude is needed
+        this method returns the average latitude / longitude from a dataframe
+        :return:
+        """
         average_latitude = sum(self.df['Latitude']) / len(self.df['Latitude'])
         average_longitude = sum(self.df['Longitude']) / len(self.df['Longitude'])
         return [average_latitude, average_longitude]
 
     def plot_clusters(self):
+        """
+        plots clusters on a folium map
+        :return:
+        """
         # create map
         self.map_clusters = folium.Map(location=self.get_average_latitude_longitude(), zoom_start=11)
 
@@ -236,10 +308,18 @@ class ProcessLocation:
                 fill_opacity=0.7).add_to(self.map_clusters)
 
     def save_map(self):
+        """
+        Saves the map
+        :return:
+        """
         filename = '{}_map.html'.format(self.location)
         self.map_clusters.save(filename)
 
     def check_local_location_file(self):
+        """
+        Get location data from local file - used if Borough information is not available in wikipedia
+        :return:
+        """
         local_file = '{}_data.json'.format(self.location)
         ret_data = []
         if os.path.exists(local_file):
@@ -264,7 +344,11 @@ class ProcessLocation:
         return False
 
     def get_data_for_location(self):
-        print('get data for location')
+        """
+        get data location data from either a local file or from wikipedia
+        :return:
+        """
+        logging.debug('get data for location')
         dataframe_pickle = '{}_dataframe.pkl'.format(self.location)
         if os.path.exists(dataframe_pickle):
             self.df = pd.read_pickle(dataframe_pickle)
@@ -274,10 +358,14 @@ class ProcessLocation:
                 self.load_data_into_dataframe()
                 self.add_coordinates()
             self.df.to_pickle(dataframe_pickle)
-        print(self.df.head())
+        logging.debug(self.df.head())
 
     def get_data_for_nearby_venues(self):
-        print('get nearby venues')
+        """
+        get data for nearby venues
+        :return:
+        """
+        logging.debug('get nearby venues')
         dataframe_pickle = '{}_nearby_veneues.pkl'.format(self.location)
         if os.path.exists(dataframe_pickle):
             self.nearby_venues = pd.read_pickle(dataframe_pickle)
@@ -286,24 +374,51 @@ class ProcessLocation:
             self.nearby_venues.to_pickle(dataframe_pickle)
 
     def process_url(self):
+        """
+        get location data, get nearby venues and classify them
+        :return:
+        """
+
         self.get_data_for_location()
         self.get_data_for_nearby_venues()
         self.classification_of_venues()
 
-    def run_process(self):
-        self.process_url()
-        self.sort_top_ten_venues()
-        self.cluster_data()
-        self.plot_clusters()
-        self.save_map()
-
     def get_url(self):
+        """
+        set self.url if the location is known
+        :return: url or None
+        """
         location_url = {'toronto': 'https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_M',
                         }
         self.url = location_url.get(self.location.lower())
+        return self.url
+
+    def run_process(self):
+        """
+        main method to process the location
+        :return:
+        """
+        # get data for the location set when initiating the class
+        self.process_url()
+        # sort the venues into top ten venues
+        self.sort_top_ten_venues()
+        # cluster the data
+        self.cluster_data()
+        # plot clusters
+        self.plot_clusters()
+        # save plotted clusters
+        self.save_map()
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--debug', help='debugging', action='store_const', dest='loglevel', const=logging.DEBUG,
+                        default=logging.INFO)
+
+    args = parser.parse_args()
+
+    logger.setLevel(args.loglevel)
+
     for location in ['toronto', 'newyork']:
         pl = ProcessLocation(location)
         pl.run_process()
