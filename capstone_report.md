@@ -31,6 +31,18 @@ Figure 1
 Figure 2
 ![Clusters of food outlets in Toronto](toronto_clusters.png "Clusters of food outlets in Toronto")
  
+ To ensure that the clustering wasn't just plotting the number of venues the number of food outlers per cluster were plotted and the results shown
+ in figure 3 and figure 4, for New York and Toronto respectively. 
+ 
+Figure 3
+![Number of food outlets per cluster in New York](newyork_cluster_counts.png "Number of food outlets per cluster in New York")
+ 
+Figure 4
+![Number of food outlets per cluster in Toronto](toronto_cluster_counts.png "Number of food outlets per clusters in Toronto")
+ 
+In New York several clusters have only a few Neighbourhoods, but overall difference can be seen in the number of outlets.
+In Toronto 
+ 
 ### Discussion
 
 Visual analysis of the clusters in both cities show a similar pattern. 

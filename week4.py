@@ -128,10 +128,10 @@ class ProcessLocation:
         if self.url:
             req = requests.get(self.url)
             soup = BeautifulSoup(req.content, 'html.parser')
-            # logging.debug(soup.prettify())
+            # logging.info(soup.prettify())
             table = soup.find('table', attrs={'class': 'wikitable sortable'})
             table_body = table.find('tbody')
-            # logging.debug(table_body)
+            # logging.info(table_body)
 
             # get the headers of the table and store in a list
             table_headers = []
@@ -203,7 +203,7 @@ class ProcessLocation:
                 lng,
                 radius,
                 LIMIT)
-            # logging.debug(url)
+            # logging.info(url)
             results = requests.get(url).json()["response"]['groups'][0]['items']
             venues_list.append([(
                 name,
@@ -228,7 +228,7 @@ class ProcessLocation:
         Classifies venues and returns a grouped dataFrame
         :return: 
         """
-        logging.debug('There are {} uniques categories.'.format(len(self.nearby_venues['Venue Category'].unique())))
+        logging.info('There are {} uniques categories.'.format(len(self.nearby_venues['Venue Category'].unique())))
         temp_nearby_venues = self.nearby_venues
         temp_nearby_venues['count'] = np.zeros(len(temp_nearby_venues))
         venue_counts = \
@@ -243,7 +243,7 @@ class ProcessLocation:
         sorts the venues into
         :return:
         """
-        logging.debug('sort top ten venues')
+        logging.info('sort top ten venues')
         # new dataframe and display the top 10 venues for each neighborhood.
 
         # create columns according to number of top venues
@@ -263,14 +263,14 @@ class ProcessLocation:
             self.neighborhoods_venues_sorted.iloc[ind, 1:] = return_most_common_venues(self.grouped_df.iloc[ind, :],
                                                                                        self.num_top_venues)
 
-        logging.debug(self.neighborhoods_venues_sorted)
+        logging.info(self.neighborhoods_venues_sorted)
 
     def cluster_data(self):
         """
         Clusters data using Kmeans with self.kclusters number of clusters
         :return:
         """
-        logging.debug('cluster data')
+        logging.info('cluster data')
         # set number of clusters
         grouped_clustering = self.grouped_df.drop('Neighborhood', axis=1)
 
@@ -288,19 +288,26 @@ class ProcessLocation:
 
         self.clusters_merged = self.clusters_merged.dropna()
         self.clusters_merged['Cluster Labels'] = self.clusters_merged['Cluster Labels'].astype('int')
-        logging.debug(self.clusters_merged)
+        logging.info(self.clusters_merged)
 
     def plot_cluster_counts(self):
         """
         get the first set of clusters and plot them
         :return:
         """
-        logging.debug('get counts of outlets per cluster')
-        logging.debug(self.grouped_df)
+        logging.info('get counts of outlets per cluster')
+        logging.info(self.grouped_df)
         self.grouped_df['total'] = self.grouped_df.sum(axis=1)
+
+        logging.info('plot cluster counts')
         self.grouped_df.plot.scatter(x='Cluster Labels', y='total')
         plt.title('Number of food outlets per cluster in {}'.format(self.location))
         plt.savefig('{}_cluster_counts'.format(self.location))
+
+        logging.info('plot cluster box plots')
+        self.grouped_df[['Cluster Labels', 'total']].boxplot(by='Cluster Labels')
+        plt.title('Number of food outlets per cluster in {}'.format(self.location))
+        plt.savefig('{}_cluster_counts_box'.format(self.location))
 
     def get_highest_count_outlet_per_cluster(self):
         """
@@ -394,7 +401,7 @@ class ProcessLocation:
         get data location data from either a local file or from wikipedia
         :return:
         """
-        logging.debug('get data for location')
+        logging.info('get data for location')
         dataframe_pickle = '{}_dataframe.pkl'.format(self.location)
         if os.path.exists(dataframe_pickle):
             self.df = pd.read_pickle(dataframe_pickle)
@@ -404,14 +411,14 @@ class ProcessLocation:
                 self.load_data_into_dataframe()
                 self.add_coordinates()
             self.df.to_pickle(dataframe_pickle)
-        logging.debug(self.df.head())
+        logging.info(self.df.head())
 
     def get_data_for_nearby_venues(self):
         """
         get data for nearby venues
         :return:
         """
-        logging.debug('get nearby venues')
+        logging.info('get nearby venues')
         dataframe_pickle = '{}_nearby_veneues.pkl'.format(self.location)
         if os.path.exists(dataframe_pickle):
             self.nearby_venues = pd.read_pickle(dataframe_pickle)
@@ -461,7 +468,7 @@ class ProcessLocation:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--debug', help='debugging', action='store_const', dest='loglevel', const=logging.DEBUG,
+    parser.add_argument('-d', '--debug', help='debugging', action='store_const', dest='loglevel', const=logging.info,
                         default=logging.INFO)
     parser.add_argument('--locations', help='locations to run', type=str, default='toronto,newyork')
 
