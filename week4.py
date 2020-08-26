@@ -309,6 +309,19 @@ class ProcessLocation:
         plt.title('Number of food outlets per cluster in {}'.format(self.location))
         plt.savefig('{}_cluster_counts_box'.format(self.location))
 
+    def plot_cluster_counts_per_type(self, food_outlet):
+        """
+        Plot clusters and food_outlet
+        :return:
+        """
+        logging.info('get counts of outlets per cluster')
+        logging.info(self.grouped_df)
+
+        logging.info('plot cluster box plots')
+        self.grouped_df[['Cluster Labels', food_outlet]].boxplot(by='Cluster Labels')
+        plt.title('Number of {} outlets per cluster in {}'.format(food_outlet, self.location))
+        plt.savefig('{}_{}_cluster_counts_box'.format(self.location, food_outlet))
+
     def get_highest_count_outlet_per_cluster(self):
         """
         Get the most popular food outlet per cluster
@@ -322,7 +335,6 @@ class ProcessLocation:
 
         # output the data frame
         df = df[['Most Popular Outlet', 'Cluster Labels']]
-        # save_df_as_image(df=df, path='{}_most_popular_outlets.png'.format(self.location))
         df.to_csv('{}_most_popular_outlets.csv'.format(self.location))
 
     def get_average_latitude_longitude(self):
@@ -460,6 +472,10 @@ class ProcessLocation:
 
         self.plot_cluster_counts()
         self.get_highest_count_outlet_per_cluster()
+        self.plot_cluster_counts_per_type(food_outlet='Pizza Place')
+        self.plot_cluster_counts_per_type(food_outlet='Café')
+        self.plot_cluster_counts_per_type(food_outlet='Vietnamese Restaurant')
+
         # plot clusters
         # self.plot_clusters()
         # save plotted clusters
