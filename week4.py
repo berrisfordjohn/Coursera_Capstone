@@ -15,6 +15,9 @@ import matplotlib.colors as colors
 import json
 import logging  # logging module
 import argparse
+import matplotlib.pyplot as plt
+# from bokeh.io import export_png, export_svgs
+# from bokeh.models import ColumnDataSource, DataTable, TableColumn
 
 # credentials are stored in a separate file and not committed
 from credentials import CLIENT_ID, CLIENT_SECRET, VERSION, LIMIT
@@ -33,6 +36,25 @@ def return_most_common_venues(row, num_top_venues):
     row_categories_sorted = row_categories.sort_values(ascending=False)
 
     return row_categories_sorted.index.values[0:num_top_venues]
+
+
+# def save_df_as_image(df, path):
+#     """
+#     Save a DataFrame as a nice image
+#     :param df: The dataFrame
+#     :param path: Filename to save to
+#     :return:
+#     """
+#     source = ColumnDataSource(df)
+#     df_columns = [df.index.name]
+#     df_columns.extend(df.columns.values)
+#     columns_for_table = []
+#     for column in df_columns:
+#         columns_for_table.append(TableColumn(field=column, title=column))
+#
+#     data_table = DataTable(source=source, columns=columns_for_table, height_policy="auto", width_policy="auto",
+#                            index_position=None)
+#     export_png(data_table, filename=path)
 
 
 class ProcessLocation:
@@ -209,15 +231,12 @@ class ProcessLocation:
         logging.debug('There are {} uniques categories.'.format(len(self.nearby_venues['Venue Category'].unique())))
         temp_nearby_venues = self.nearby_venues
         temp_nearby_venues['count'] = np.zeros(len(temp_nearby_venues))
-        venue_counts = temp_nearby_venues.groupby(['Neighborhood', 'Venue Category']).count()
-        logging.debug(venue_counts[(venue_counts['count'] > 2)])
-        onehot = pd.get_dummies(self.nearby_venues[['Venue Category']], prefix="", prefix_sep="")
-        # add neighborhood column back to dataframe
-        onehot['Neighborhood'] = self.nearby_venues['Neighborhood']
-        logging.debug(onehot)
-
-        self.grouped_df = onehot.groupby('Neighborhood').count().reset_index()
-        logging.debug(self.grouped_df)
+        venue_counts = \
+        temp_nearby_venues[['Neighborhood', 'Venue Category', 'count']].groupby(['Neighborhood', 'Venue Category'])[
+            'count'].count()
+        self.grouped_df = venue_counts.unstack(level=-1)
+        self.grouped_df = self.grouped_df.fillna(0)
+        self.grouped_df = self.grouped_df.reset_index()
 
     def sort_top_ten_venues(self):
         """
@@ -253,21 +272,51 @@ class ProcessLocation:
         """
         logging.debug('cluster data')
         # set number of clusters
-        grouped_clustering = self.grouped_df.drop('Neighborhood', 1)
+        grouped_clustering = self.grouped_df.drop('Neighborhood', axis=1)
 
         # run k-means clustering
         kmeans = KMeans(n_clusters=self.kclusters, random_state=0).fit(grouped_clustering)
 
         # add clustering labels
-        self.neighborhoods_venues_sorted.insert(0, 'Cluster Labels', kmeans.labels_)
+        self.grouped_df.insert(0, 'Cluster Labels', kmeans.labels_)
 
         self.clusters_merged = self.df
 
-        # merge toronto_grouped with toronto_data to add latitude/longitude for each neighborhood
-        self.clusters_merged = self.clusters_merged.join(self.neighborhoods_venues_sorted.set_index('Neighborhood'),
+        # get the longitude and latitude back
+        self.clusters_merged = self.clusters_merged.join(self.grouped_df.set_index('Neighborhood'),
                                                          on='Neighborhood')
 
+        self.clusters_merged = self.clusters_merged.dropna()
+        self.clusters_merged['Cluster Labels'] = self.clusters_merged['Cluster Labels'].astype('int')
         logging.debug(self.clusters_merged)
+
+    def plot_cluster_counts(self):
+        """
+        get the first set of clusters and plot them
+        :return:
+        """
+        logging.debug('get counts of outlets per cluster')
+        logging.debug(self.grouped_df)
+        self.grouped_df['total'] = self.grouped_df.sum(axis=1)
+        self.grouped_df.plot.scatter(x='Cluster Labels', y='total')
+        plt.title('Number of food outlets per cluster in {}'.format(self.location))
+        plt.savefig('{}_cluster_counts'.format(self.location))
+
+    def get_highest_count_outlet_per_cluster(self):
+        """
+        Get the most popular food outlet per cluster
+        :return:
+        """
+        # group by cluster labels and find the average number of outlets per type
+        df = self.grouped_df.drop(['Neighborhood', 'total'], axis=1).groupby('Cluster Labels').mean()
+        # find the outlet type with the highest count
+        df['Most Popular Outlet'] = df.idxmax(axis=1)
+        df = df.reset_index()
+
+        # output the data frame
+        df = df[['Most Popular Outlet', 'Cluster Labels']]
+        # save_df_as_image(df=df, path='{}_most_popular_outlets.png'.format(self.location))
+        df.to_csv('{}_most_popular_outlets.csv'.format(self.location))
 
     def get_average_latitude_longitude(self):
         """
@@ -286,9 +335,6 @@ class ProcessLocation:
         """
         # create map
         self.map_clusters = folium.Map(location=self.get_average_latitude_longitude(), zoom_start=11)
-
-        self.clusters_merged = self.clusters_merged.dropna()
-        self.clusters_merged['Cluster Labels'] = self.clusters_merged['Cluster Labels'].astype('int')
 
         markers_colors = []
         for index, row in self.clusters_merged.iterrows():
@@ -401,25 +447,30 @@ class ProcessLocation:
         # get data for the location set when initiating the class
         self.process_url()
         # sort the venues into top ten venues
-        self.sort_top_ten_venues()
+        # self.sort_top_ten_venues()
         # cluster the data
         self.cluster_data()
+
+        self.plot_cluster_counts()
+        self.get_highest_count_outlet_per_cluster()
         # plot clusters
-        self.plot_clusters()
+        # self.plot_clusters()
         # save plotted clusters
-        self.save_map()
+        # self.save_map()
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--debug', help='debugging', action='store_const', dest='loglevel', const=logging.DEBUG,
                         default=logging.INFO)
+    parser.add_argument('--locations', help='locations to run', type=str, default='toronto,newyork')
 
     args = parser.parse_args()
 
     logger.setLevel(args.loglevel)
 
-    for location in ['toronto', 'newyork']:
+    # runs the process on two locations
+    for location in args.locations.split(','):
         pl = ProcessLocation(location)
         pl.run_process()
 
