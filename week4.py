@@ -477,9 +477,9 @@ class ProcessLocation:
         self.plot_cluster_counts_per_type(food_outlet='Vietnamese Restaurant')
 
         # plot clusters
-        # self.plot_clusters()
+        self.plot_clusters()
         # save plotted clusters
-        # self.save_map()
+        self.save_map()
 
 
 def main():
